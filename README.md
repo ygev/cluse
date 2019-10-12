@@ -1,4 +1,4 @@
-# my-plugin
+# Cluse
 
 ## Installation
 
