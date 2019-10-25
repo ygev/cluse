@@ -1,0 +1,249 @@
+body,
+html {
+	/* background-color: yellow; */
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+body {
+	background-color: #EEEEEE;
+}
+
+/* WHITE HEADER */
+
+.bg-white {
+	background-color: #F7F6F7;
+	height: 60px;
+	width: auto;
+	border-bottom: 1px #D7D7D7 solid;
+	display: flex;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-bottom: 30px;
+}
+
+.logo {
+	width: 36px;
+}
+
+.title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 15px;
+}
+.title-tab {
+	font-family: SFUIDisplay-Bold;
+	font-size: 15px;
+	line-height: 20px;
+	color: #262626;
+	letter-spacing: 0;
+}
+
+.subtitle-tab {
+	font-family: SFUIDisplay-Medium;
+	font-size: 14px;
+	line-height: 20px;
+	color: #777;
+	letter-spacing: 0.3px;
+}
+
+/* TOP CHUNK*/
+
+.top-chunk {
+	display: flex;
+	margin-left: 30px;
+	margin-top: 5px;
+	margin-right: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px #D7D7D7 solid;
+}
+
+.title-tool {
+	font-family: SFUIDisplay-Bold;
+	font-size: 11px;
+	color: #797979;
+	letter-spacing: 0.1px;
+	text-transform: uppercase;
+	line-height: 24px;
+	margin-bottom: 8px;
+}
+
+.title-return {
+	font-family: SFUIDisplay-Medium;
+	font-size: 15px;
+	color: #000000;
+	letter-spacing: -0.08px;
+}
+
+.wcag-wrapper {
+	display: flex;
+}
+
+.wcag-values {
+	display: flex;
+	flex-direction: column;
+}
+
+.wcag-levels {
+	display: flex;
+	flex-direction: column;
+}
+
+.img-status {
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+.wcag-level {
+	margin-bottom: 15px;
+}
+
+.button-auto {
+	width: 50px;
+	padding-top: 3px;
+	padding-bottom: 4px;
+	border-radius: 3px;
+	margin-left: 10px;
+}
+
+.col-left {
+	width: 164px;
+}
+
+.col-right {
+	margin-left: 70px;	
+}
+
+.circle {
+	background-color: #006CF4;
+	border: 1px solid rgba(38,38,38,0.50);
+	border-radius: 100%;
+	width: 140px;
+	height: 140px;
+	text-align: center;
+	line-height: 130px;
+	font-weight: 400;
+	color: #fff;
+	font-size: 72px;
+	text-align: center;
+}
+
+.contrast {
+	background-color: #fff;
+	position: absolute;
+	min-width: 50px;
+	font-family: SFUIDisplay-Bold;
+	font-size: 14px;
+	color: #2A2A2A;
+	letter-spacing: 0;
+	text-align: center;
+	right: 75px;
+	padding: 6px;
+	border: 1px solid #C4C4C4;
+	box-shadow: 0 0 2px 0 rgba(0,0,0,0.20);
+	border-radius: 14.5px;
+	transition: 0.2s ease;
+}
+/* NEED A WAY TO MAKE THIS LESS CODEY IN JS, no class just add styling directly through JS */
+
+.pass {
+	background-color: #9EFF40;
+	position: absolute;
+	min-width: 50px;
+	font-family: SFUIDisplay-Bold;
+	font-size: 14px;
+	color: #2A2A2A;
+	letter-spacing: 0;
+	text-align: center;
+	right: 75px;
+	padding: 6px;
+	border: 1px solid #91C75A;
+	box-shadow: 0 0 2px 0 rgba(0,0,0,0.20);
+	border-radius: 14.5px;
+	transition: 0.2s ease;
+}
+
+/* BOTTOM CHUNK */
+.color-settings {
+	display: flex;
+	margin-left: 30px;
+	margin-top: 20px;
+	margin-right: 30px;
+	padding-bottom: 20px;
+}
+
+.color-input {
+	width: 95px;
+	background: #464646;
+	border: 1px solid #C4C4C4;
+	box-shadow: 0 0 2px 0 rgba(0,0,0,0.20);
+	border-radius: 14.5px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	/* Input Font */
+	font-family: SFUIDisplay-Medium;
+	font-size: 13px;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: -0.08px;
+	text-align: center;
+}
+
+.input-wrapper {
+	position: relative;
+}
+
+.hashtag { 
+	position: absolute; 
+	display: block; 
+	left: 10px; 
+	top: 8px; 
+	z-index: 9; 
+	font-family: SFUIDisplay-Medium;
+	font-size: 13px;
+	color: rgba(255,255,255,0.50);
+	text-transform: uppercase;
+	letter-spacing: -0.08px;
+	text-align: center;
+}
+
+
+input[type='range'] {
+	-webkit-appearance: none;
+  }
+  
+  .slider-input {
+	margin-top: 20px;
+	appearance: none;
+	border-radius: 3em;
+	height: 1em;
+	width: 160px;
+	border: 2px #fff solid; 
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,.25);
+	background: linear-gradient(to right,  #000000 0%,#006cf4 50%,#ffffff 100%);
+  }
+  
+  input:focus {
+	outline: none;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+	background: white;
+	border: 2px white solid;
+    border-radius: 100%;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,.25);
+    height: 2em;
+    width: 2em;
+    transition: all 250ms ease-in-out;
+}
+
+input[type='range']::webkit-slider-thumb:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,.5);
+  }

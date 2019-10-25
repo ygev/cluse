@@ -1,0 +1,24 @@
+{
+  "name": "Cluse Accessibility Diagnostics",
+  "description": "A template for building sketchplugins using a webview for UI",
+  "author": "Yours Truly",
+  "homepage": "https://example.org",
+  "version": "0",
+  "identifier": "org.example.template",
+  "appcast": "https://example.org/template-plugin-appcast.xml",
+  "icon": "icon.png",
+  "compatibleVersion": "49",
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "Check Color Contrast",
+      "identifier": "run",
+      "shortcut": "",
+      "script": "script.js",
+      "handler": "onRun"
+    }
+  ],
+  "menu": {
+    "items": ["run"]
+  }
+}
