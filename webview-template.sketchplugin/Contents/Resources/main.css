@@ -198,21 +198,6 @@ body {
 	position: relative;
 }
 
-.hashtag { 
-	position: absolute; 
-	display: block; 
-	left: 10px; 
-	top: 8px; 
-	z-index: 9; 
-	font-family: SFUIDisplay-Medium;
-	font-size: 13px;
-	color: rgba(255,255,255,0.50);
-	text-transform: uppercase;
-	letter-spacing: -0.08px;
-	text-align: center;
-}
-
-
 input[type='range'] {
 	-webkit-appearance: none;
   }
