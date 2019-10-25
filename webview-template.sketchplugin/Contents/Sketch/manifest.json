@@ -3,7 +3,7 @@
   "description": "A template for building sketchplugins using a webview for UI",
   "author": "Yours Truly",
   "homepage": "https://example.org",
-  "version": "0",
+  "version": "1.0",
   "identifier": "org.example.template",
   "appcast": "https://example.org/template-plugin-appcast.xml",
   "icon": "icon.png",
