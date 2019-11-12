@@ -1,16 +1,13 @@
 <!doctype html>
 <html>
 	<head>
+        <script src="hook.js"></script>
 		<link rel="stylesheet" href="reset.css">
-		<link rel="stylesheet" href="main.css">
-		<style>	
-	
-		</style> 
+		<link rel="stylesheet" href="style.css">
 	</head>
-
 	<body>
 		<header class="bg-white">
-			<img src="logo.svg" alt="" class="logo">
+			<img src="img/logo.svg" alt="" class="logo">
 			<div class="title">
 				<h1 class="title-tab">Check Color Contrast</h1>
 				<h2 class="subtitle-tab">Ensure your text color contrast passes WCAG.</h2>
@@ -26,12 +23,10 @@
 							<p class="title-return wcag-level">AAA</p>
 					</div>
 					<div class="wcag-values">
-							<img src="yes.svg" alt="" class="img-status yes">
-							<img src="no.svg" alt="" class="img-status no">	
+							<img id="big-aa" alt="" class="img-status no">
+							<img id="big-aaa" alt="" class="img-status no">	
 					</div>
 			
-					<!-- <button class="button-auto">Auto</button> -->
-		
 				</div>
 				<div class="section_text-class tool">
 						<h3 class="title-tool">Text Classification</h3>
@@ -41,7 +36,7 @@
 			</div>
 			<div class="col-right">
 					<div class="circle-wrapper">
-						<div id="ratio"  class="contrast"></div>
+						<div id="ratio"  class="contrast">8.5:1</div>
 						<div id="normal" class="circle">Aa</div>
 						</div>
 			</div>
@@ -52,7 +47,7 @@
 					<h3 class="title-tool">Background Color</h3>
 					<div class="input-wrapper">
 						<input id="bHex" maxlength="7" class="color-input" type="text" name="head"
-					value="006CF4">
+					value="#006CF4">
 					</div>
 					<div class="color-slider">
 							<input id="bLightness" class="slider-input hex-value" type="range" min="0" value="50" max="100" step="1">
@@ -61,14 +56,18 @@
 				<fieldset class="col-right color-foreground">
 					<h3 class="title-tool">Foreground Color</h3>
 					<div class="input-wrapper">
-						<input id="fHex" maxlength="7" required class="color-input" type="text" name="head">
+						<input id="fHex" maxlength="7" required class="color-input" value="#FFFFFF" type="text" name="head">
 						</div>
 						<div class="color-slider">
 								<input id="fLightness" class="slider-input hex-value" type="range" min="0" value="50" max="100" step="1">
 							  </div>
 				</fieldset>
 			</form>
-		</section>
+        </section>
+        <section class="cta">
+            <button id="js-ok" class="button-primary">OK</button>
+            <button class="button-secondary">Cancel</button>
+        </section>
 	</body>
 	<script
 	src="https://code.jquery.com/jquery-1.12.4.min.js"

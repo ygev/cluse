@@ -71,10 +71,6 @@ function update() {
     $('#layer1 path').css({
         'fill': f
     });
-    $('.permalink').attr('href', './?fcolor=' + f.substr(1) + '&bcolor=' + b.substr(1));
-    $('a[href*="linkcontrastchecker"]').attr('href', '/resources/linkcontrastchecker/?fcolor=' + f.substr(1) + '&bcolor=' + b.substr(1));
-    $('.apilink').attr('href', './?fcolor=' + f.substr(1) + '&bcolor=' + b.substr(1) + '&api');
-    $('.apilink').text('https://webaim.org/resources/contrastchecker/?fcolor=' + f.substr(1) + '&bcolor=' + b.substr(1) + '&api');
 
     // Update lightness sliders
     var fHSL = RGBtoHSL(getRGB(f.substr(1, 2)), getRGB(f.substr(3, 2)), getRGB(f.substr(-2)));
