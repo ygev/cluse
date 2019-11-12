@@ -33,12 +33,33 @@ function onApply(options) {
 };
 
 // Determine Text Size
+// Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger. --WCAG
+
 function findTxtSize(){
         var doc = sketch.getSelectedDocument();
         var selection = doc.selectedLayers;
         var txtSize = selection.layers[0].style.fontSize;
+        var txtWeight = selection.layers[0].style.fontSize;
 
+// if weight is above this, then bold=true, else bold=false.
+        var bold;
+        if (txtWeight > 5) {
+                bold = true;
+        }
+        else {
+             bold = false;
+        }
+
+
+// if tit size is above 18 AND bold ORRRR above 24 and NOT bold, it is Large Text, else normal text
+        if ((txtSize < 18 && bold == true) || txtSize < 24) {
+               var lrgText = true;
+        }
+        else {
+                lrgText = false;
+        }
 }
+
 
 
 module.exports = { onApply, onLoad };    
