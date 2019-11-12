@@ -1,5 +1,6 @@
 const MochaJSDelegate = require("./MochaJSDelegate");
 var _window;
+var _webView;
 
 //	Private
 
@@ -71,7 +72,8 @@ function showWindow(window){
 //	Public
 
 function loadAndShow(baseURL, onApplyMessage, onLoad){
-	if(_window){
+	if(_window && _webView) {
+		onLoad(_webView);
 		showWindow(_window);
 
 		return;
@@ -82,13 +84,12 @@ function loadAndShow(baseURL, onApplyMessage, onLoad){
 		.URLByAppendingPathComponent("../Resources/web-ui/index.html");
 
 	const window = createWindow();
-	const webView = createWebView(pageURL, onApplyMessage, webView => {
+	_webView = createWebView(pageURL, onApplyMessage, webView => {
 		onLoad(webView);
 		showWindow(window);
 	});
 
-	window.contentView = webView;
-
+	window.contentView = _webView;
 	_window = window;
 };
 
@@ -98,6 +99,13 @@ function cleanup(){
 		_window = null;
 	}
 };
+
+
+// Assign a function to the Close button
+closeButton.setCOSJSTargetFunction(function(sender) {
+  window.close();
+
+});
 
 //	Export
 

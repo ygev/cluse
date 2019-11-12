@@ -4,9 +4,16 @@ function apply(){
         );
 };
 
-function setColorInit(b, f) {
-	document.getElementById("normal").style.backgroundColor = b;
-	document.getElementById("normal").style.color = f;
+function setColorInit(bg, fg) {
+	f = fg;
+	b = bg;
+	update();
+
+	document.getElementById("normal").style.backgroundColor = bg;
+	document.getElementById("normal").style.color = fg;
+	// Set value of inputs to the correct color hex value
+	document.getElementById("fHex").value = fg.substring(0,7);
+	document.getElementById("bHex").value = bg.substring(0,7);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
