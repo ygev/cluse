@@ -4,10 +4,6 @@ var DataSupplier = require('sketch/data-supplier');
 var UI = require('sketch/ui');
 var Settings = require('sketch/settings');
 
-function onApply(options) {
-        console.log("onApply(options)");
-        UI.alert("Test Alert", "goose!");
-};
 
 function onLoad(webView) {
         console.error("onLoad()");
@@ -25,10 +21,24 @@ function onLoad(webView) {
         webView.evaluateJavaScript_completionHandler(`setColorInit('${bgSketch}', '${fgSketch}')`, null);
 }
 
+// Apply Color to Button
+function onApply(options) {
+        // UI.alert("Test Alert", JSON.stringify(options));
+        // UI.alert("Test Alert", "backgroundis " + options.background + " and foregound is " + options.foreground);
+        var doc = sketch.getSelectedDocument();
+        var selection = doc.selectedLayers;       
+        selection.layers[0].style.fills[0].color = options.background;
+        selection.layers[1].style.textColor = options.foreground;
 
+};
 
-// TODO for Oct 29
-// Assuming that two layers are selected, figure out which one is textColor, and which one is just a Fill. 
-// Extract both and store in f(text) and b(fill) respectively.
+// Determine Text Size
+function findTxtSize(){
+        var doc = sketch.getSelectedDocument();
+        var selection = doc.selectedLayers;
+        var txtSize = selection.layers[0].style.fontSize;
+
+}
+
 
 module.exports = { onApply, onLoad };    

@@ -1,8 +1,4 @@
-function apply(){
-        window.webkit.messageHandlers.sketchPlugin.postMessage(
-                JSON.stringify({"testMessage": "hello from hook.js!"})
-        );
-};
+
 
 function setColorInit(bg, fg) {
 	f = fg;
@@ -15,6 +11,24 @@ function setColorInit(bg, fg) {
 	document.getElementById("fHex").value = fg.substring(0,7);
 	document.getElementById("bHex").value = bg.substring(0,7);
 }
+
+function apply(){
+	window.webkit.messageHandlers.sketchPlugin.postMessage(
+			JSON.stringify({"testMessage": "hello from hook.js!"})
+	);
+};
+
+function apply(){
+	var message = {
+		"background": b,
+		"foreground": f
+	};
+
+	window.webkit.messageHandlers.sketchPlugin.postMessage(
+			//JSON.stringify({"testMessage": "hello from hook.js!"})
+			JSON.stringify(message)
+	);
+};
 
 document.addEventListener("DOMContentLoaded", () => {
 	//	Set up apply to trigger on button press
