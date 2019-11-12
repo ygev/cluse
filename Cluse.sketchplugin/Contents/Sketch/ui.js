@@ -101,11 +101,12 @@ function cleanup(){
 };
 
 
-// Assign a function to the Close button
-closeButton.setCOSJSTargetFunction(function(sender) {
-  window.close();
 
-});
+// FAIL AT CANCELLING
+// var cancelButton = document.getElementById("js-cancel");
+// cancelButton.onclick = function(){
+// 	window.close();
+// };
 
 //	Export
 
