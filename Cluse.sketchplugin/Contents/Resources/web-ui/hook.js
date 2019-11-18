@@ -1,6 +1,6 @@
 
 
-function setSketchData(bg, fg) {
+function setSketchData(bg, fg, isLrg) {
 	f = fg;
 	b = bg;
 	update();
@@ -10,6 +10,13 @@ function setSketchData(bg, fg) {
 	// Set value of inputs to the correct color hex value
 	document.getElementById("fHex").value = fg.substring(0,7);
 	document.getElementById("bHex").value = bg.substring(0,7);
+
+	if (isLrg){
+		document.getElementById("js-txtSize").innerHTML = "Large Text";
+	}
+	else {
+		document.getElementById("js-txtSize").innerHTML = "Normal Text";
+	}
 }
 
 function apply(){

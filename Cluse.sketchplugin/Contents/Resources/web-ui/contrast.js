@@ -103,25 +103,49 @@ function checkContrast() {
     // Dec2() truncates the number to 2 decimal places without rounding.
     $('#ratio').html('<b>' + Dec2((ratio * 100) / 100) + '</b>:1');
     //$('#ratio').html('<b>' + (Math.round(ratio * 100) / 100).toFixed(2) + '</b>:1');
-    if (ratio >= 4.5) {
-        $('#normalAA, #bigAAA').attr('class', 'pass').text('Pass');
-        $('#ratio').attr('class', 'pass');
+
+    if (document.getElementById("js-txtSize").innerHTML == "Normal Text") {
+        if (ratio >= 7) {
+            // normal AAA pass
+            $('#AAA').attr("src","img/yes.svg");
+            console.log("normal AAA pass")
+        } else {
+            // normal AAA fail
+            $('#AAA').attr("src","img/no.svg");
+            console.log("normal AAA fail")
+        }
+
+        if (ratio >= 4.5) {
+            // normal-size AA pass
+            $('#AA').attr("src","img/yes.svg");
+            console.log("normal AA pass")
+        } else {
+            // normal-size AA fail
+            $('#AA').attr("src","img/no.svg");
+            console.log("normal AA fail")
+        }
+    } else if (document.getElementById("js-txtSize").innerHTML == "Large Text") {
+        if (ratio >= 3) {
+            // big AA pass
+            $('#AA').attr("src","img/yes.svg");
+            console.log("large AA pass")
+        } else {
+            // big AA fail
+            $('#AA').attr("src","img/no.svg");
+            console.log("large AA fail")
+        }
+
+        if (ratio >= 4.5) {
+            // big AAA pass
+            $('#AAA').attr("src","img/yes.svg");
+            console.log("large AAA pass")
+        } else {
+            // big AAA fail
+            $('#AAA').attr("src","img/no.svg");
+            console.log("large AAA fail")
+        }
     } else {
-        $('#normalAA, #bigAAA').attr('class', 'fail').text('Fail');
-        $('#ratio').removeClass('pass');
-        $('#ratio').attr('class', 'contrast');
-    }
-    if (ratio >= 3) {
-        $('#bigAA').attr('class', 'pass').text('Pass');
-        $('#uiAA').attr('class', 'pass').text('Pass');
-    } else {
-        $('#bigAA').attr('class', 'fail').text('Fail');
-        $('#uiAA').attr('class', 'fail').text('Fail');
-    }
-    if (ratio >= 7) {
-        $('#normalAAA').attr('class', 'pass').text('Pass');
-    } else {
-        $('#normalAAA').attr('class', 'fail').text('Fail');
+        console.error("#js-txtSize value is neither normal nor large text");
     }
 }
 

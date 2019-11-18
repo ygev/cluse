@@ -148,25 +148,6 @@ body {
 	border-radius: 14.5px;
 	transition: 0.2s ease;
 }
-/* NEED A WAY TO MAKE THIS LESS CODEY IN JS, no class just add styling directly through JS 
-maybe add a pulse animation*/
-
-.pass {
-	background-color: #9EFF40;
-	position: absolute;
-	min-width: 50px;
-	font-family: SFUIDisplay-Bold;
-	font-size: 14px;
-	color: #2A2A2A;
-	letter-spacing: 0;
-	text-align: center;
-	right: 50px;
-	padding: 6px;
-	border: 1px solid #91C75A;
-	box-shadow: 0 0 2px 0 rgba(0,0,0,0.20);
-	border-radius: 14.5px;
-	transition: 0.2s ease;
-}
 
 /* BOTTOM CHUNK */
 .color-settings {

@@ -14,11 +14,12 @@ function onLoad(webView) {
         console.log("selected #: " + selection.length);
         console.log("layer 0: " + bgSketch);
         console.log("layer 1: " + fgSketch);
+        var isLrgSketch = findTxtSize();
 
-        console.log("calling " + `setSketchData('${bgSketch}', '${fgSketch}')`);
+        console.log("calling " + `setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`);
         // webView.evaluateJavaScript_completionHandler("setSketchData('#fff', '#000')", null);
 
-        webView.evaluateJavaScript_completionHandler(`setSketchData('${bgSketch}', '${fgSketch}')`, null);
+        webView.evaluateJavaScript_completionHandler(`setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`, null);
 }
 
 // Apply Color to Button
@@ -38,8 +39,8 @@ function onApply(options) {
 function findTxtSize(){
         var doc = sketch.getSelectedDocument();
         var selection = doc.selectedLayers;
-        var txtSize = selection.layers[0].style.fontSize;
-        var txtWeight = selection.layers[0].style.fontWeight;
+        var txtSize = selection.layers[1].style.fontSize;
+        var txtWeight = selection.layers[1].style.fontWeight;
 
         // if weight is above this, then bold=true, else bold=false.
         var bold;
@@ -53,13 +54,12 @@ function findTxtSize(){
         // shorter alternative to the above:
         //var bold = txtWeight > 5;
 
-
         // if tit size is above 18 AND bold ORRRR above 24 and NOT bold, it is Large Text, else normal text
-        if ((txtSize < 18 && bold == true) || txtSize > 24) {
-               var lrgText = true;
+        if ((txtSize >= 18 && bold == true) || txtSize >= 24) {
+               return true;
         }
-        else {
-                lrgText = false;
+        else if (txtSize < 18) {
+                return false;
         }
 }
 
