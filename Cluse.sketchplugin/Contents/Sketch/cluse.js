@@ -15,10 +15,10 @@ function onLoad(webView) {
         console.log("layer 0: " + bgSketch);
         console.log("layer 1: " + fgSketch);
 
-        console.log("calling " + `setColorInit('${bgSketch}', '${fgSketch}')`);
-        // webView.evaluateJavaScript_completionHandler("setColorInit('#fff', '#000')", null);
+        console.log("calling " + `setSketchData('${bgSketch}', '${fgSketch}')`);
+        // webView.evaluateJavaScript_completionHandler("setSketchData('#fff', '#000')", null);
 
-        webView.evaluateJavaScript_completionHandler(`setColorInit('${bgSketch}', '${fgSketch}')`, null);
+        webView.evaluateJavaScript_completionHandler(`setSketchData('${bgSketch}', '${fgSketch}')`, null);
 }
 
 // Apply Color to Button

@@ -1,6 +1,6 @@
 
 
-function setColorInit(bg, fg) {
+function setSketchData(bg, fg) {
 	f = fg;
 	b = bg;
 	update();
