@@ -41,7 +41,7 @@ function findTxtSize(){
         var txtSize = selection.layers[0].style.fontSize;
         var txtWeight = selection.layers[0].style.fontWeight;
 
-// if weight is above this, then bold=true, else bold=false.
+        // if weight is above this, then bold=true, else bold=false.
         var bold;
         if (txtWeight > 5) {
                 bold = true;
@@ -54,7 +54,7 @@ function findTxtSize(){
         //var bold = txtWeight > 5;
 
 
-// if tit size is above 18 AND bold ORRRR above 24 and NOT bold, it is Large Text, else normal text
+        // if tit size is above 18 AND bold ORRRR above 24 and NOT bold, it is Large Text, else normal text
         if ((txtSize < 18 && bold == true) || txtSize > 24) {
                var lrgText = true;
         }
