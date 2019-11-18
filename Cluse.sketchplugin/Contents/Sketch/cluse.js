@@ -39,7 +39,7 @@ function findTxtSize(){
         var doc = sketch.getSelectedDocument();
         var selection = doc.selectedLayers;
         var txtSize = selection.layers[0].style.fontSize;
-        var txtWeight = selection.layers[0].style.fontSize;
+        var txtWeight = selection.layers[0].style.fontWeight;
 
 // if weight is above this, then bold=true, else bold=false.
         var bold;
@@ -50,9 +50,12 @@ function findTxtSize(){
              bold = false;
         }
 
+        // shorter alternative to the above:
+        //var bold = txtWeight > 5;
+
 
 // if tit size is above 18 AND bold ORRRR above 24 and NOT bold, it is Large Text, else normal text
-        if ((txtSize < 18 && bold == true) || txtSize < 24) {
+        if ((txtSize < 18 && bold == true) || txtSize > 24) {
                var lrgText = true;
         }
         else {
