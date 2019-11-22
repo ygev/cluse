@@ -65,12 +65,6 @@ function update() {
         'color': f,
         'background-color': b
     });
-    $('#uibox').css({
-        'border-color': f
-    });
-    $('#layer1 path').css({
-        'fill': f
-    });
 
     // Update lightness sliders
     var fHSL = RGBtoHSL(getRGB(f.substr(1, 2)), getRGB(f.substr(3, 2)), getRGB(f.substr(-2)));
@@ -82,10 +76,10 @@ function update() {
 
     // Update contrast ratio
     checkContrast();
+    apply();
 }
 
 // Calculation Functions
-
 function changeHue(context) {
     HSL = RGBtoHSL(getRGB(eval(context).substr(1, 2)), getRGB(eval(context).substr(3, 2)), getRGB(eval(context).substr(-2)));
     RGB = HSLtoRGB(HSL[0], HSL[1], $('#' + context + 'Lightness').val());

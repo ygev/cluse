@@ -1,9 +1,3 @@
-/* function */
-function autoUpdate(){
-	console.log("I'm in autoUpdate")
-	console.log(this.value)
-}
-
 function setSketchData(bg, fg, isLrg) {
 	f = fg;
 	b = bg;
@@ -21,22 +15,34 @@ function setSketchData(bg, fg, isLrg) {
 	else {
 		document.getElementById("js-txtSize").innerHTML = "Normal Text";
 	}
-
-	/* event listener */
-	document.getElementById("bLightness").addEventListener('change', autoUpdate);
 }
+
 
 function apply(){
 	var message = {
-		"background": b,
-		"foreground": f
+		"background": document.getElementById("bHex").value,
+		"foreground": document.getElementById("fHex").value
 	};
 
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
-			//JSON.stringify({"testMessage": "hello from hook.js!"})
 			JSON.stringify(message)
 	);
 };
+
+// Auto Update Sketch Canvas with Slider Colors
+// function autoUpdate(){
+// 	console.log("I'm in autoUpdate")
+// 	console.log("Coming from " + this.id)
+
+// 	var message = {
+// 		"background": b,
+// 		"foreground": f
+// 	};
+
+// 	window.webkit.messageHandlers.sketchPlugin.postMessage(
+// 		JSON.stringify(message)
+// 	);
+// }
 
 document.addEventListener("DOMContentLoaded", () => {
 	//	Set up apply to trigger on button press
@@ -49,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	document.body.addEventListener("js-ok", e => {
 		if(e.keyCode !== 13) return;
-
 		apply();
 	});
 });
