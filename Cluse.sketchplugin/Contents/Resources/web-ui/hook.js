@@ -6,7 +6,7 @@ function setSketchData(bg, fg, isLrg) {
 	f = fg;
 	b = bg;
 	update();
-	iniFg = fg;
+	initFg = fg;
 	initBg = bg;
 
 	document.getElementById("normal").style.backgroundColor = bg;
@@ -33,6 +33,30 @@ function apply(){
 			JSON.stringify(message)
 	);
 };
+
+function cancel() {
+	var messageCancel = {
+		"background": initBg,
+		"foreground": initFg
+	};
+
+	window.webkit.messageHandlers.sketchPlugin.postMessage(
+			JSON.stringify(messageCancel)
+	);
+	window.close();
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+	//	Set up apply to trigger on button press
+
+	document.getElementById("js-cancel").addEventListener("click", () => {
+		cancel();
+	});
+
+	//	Add ESC key shortcut later
+
+});
 
 document.addEventListener("DOMContentLoaded", () => {
 	//	Set up apply to trigger on button press

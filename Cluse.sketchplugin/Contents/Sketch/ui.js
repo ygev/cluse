@@ -100,14 +100,6 @@ function cleanup(){
 	}
 };
 
-
-
-// FAIL AT CANCELLING
-// var cancelButton = document.getElementById("js-cancel");
-// cancelButton.onclick = function(){
-// 	window.close();
-// };
-
 //	Export
 
 module.exports = { loadAndShow, cleanup };
