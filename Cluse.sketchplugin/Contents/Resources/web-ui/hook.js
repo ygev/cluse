@@ -1,5 +1,3 @@
-
-
 function setSketchData(bg, fg, isLrg) {
 	f = fg;
 	b = bg;
