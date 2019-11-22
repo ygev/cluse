@@ -1,7 +1,8 @@
+// Set initial values.
 var initFg;
 var initBg;
 
-
+// Get values from Sketch.
 function setSketchData(bg, fg, isLrg) {
 	f = fg;
 	b = bg;
@@ -23,6 +24,7 @@ function setSketchData(bg, fg, isLrg) {
 	}
 }
 
+// Apply slider hexes to the canvas.
 function apply(){
 	var message = {
 		"background": document.getElementById("bHex").value,
@@ -34,7 +36,33 @@ function apply(){
 	);
 };
 
-function cancel() {
+
+// Reset BG to Original
+function resetBg() {
+	var messageCancel = {
+		"background": initBg,
+	};
+
+	window.webkit.messageHandlers.sketchPlugin.postMessage(
+			JSON.stringify(messageCancel)
+	);
+}
+
+
+// Reset FG to Original
+function resetFg() {
+	var messageCancel = {
+		"foreground": initFg
+	};
+
+	window.webkit.messageHandlers.sketchPlugin.postMessage(
+			JSON.stringify(messageCancel)
+	);
+}
+
+
+// Reset FG & BG to Original (For Cancel Button)
+function resetToInitial() {
 	var messageCancel = {
 		"background": initBg,
 		"foreground": initFg
@@ -43,33 +71,40 @@ function cancel() {
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
 			JSON.stringify(messageCancel)
 	);
-	window.close();
 }
 
+// Close the Window
+function closeWindow() {
+	var messageCancel = {
+		close: true
+	};
 
+	window.webkit.messageHandlers.sketchPlugin.postMessage(
+		JSON.stringify(messageCancel)
+	);
+}
+
+// When you press cancel, reset everything to original and close window.
 document.addEventListener("DOMContentLoaded", () => {
-	//	Set up apply to trigger on button press
-
 	document.getElementById("js-cancel").addEventListener("click", () => {
-		cancel();
+		resetToInitial();
+		closeWindow();
 	});
-
-	//	Add ESC key shortcut later
-
 });
 
+// When you press OK, apply the new colors and close the window.
 document.addEventListener("DOMContentLoaded", () => {
-	//	Set up apply to trigger on button press
-
 	document.getElementById("js-ok").addEventListener("click", () => {
 		apply();
+		closeWindow();
 	});
 
-	//	Add ENTER key shortcut
-
-	document.body.addEventListener("js-ok", e => {
-		if(e.keyCode !== 13) return;
-		apply();
-	});
+	//	Add ENTER key shortcut (broken)
+	// document.body.addEventListener("js-ok", e => {
+	// 	if(e.keyCode == 13) {
+	// 	apply();
+	// 	closeWindow();
+	// }
+	// });
 });
 

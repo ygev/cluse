@@ -16,8 +16,14 @@ function createWebView(pageURL, onApplyMessage, onLoadFinish){
                         console.log("didReceiveScriptMessage: " + wkMessage.body())
 
                         try {
-                                const message = JSON.parse(wkMessage.body());
-                                onApplyMessage(message);
+								const message = JSON.parse(wkMessage.body());
+								
+								if (message.close == true) {
+									console.log("closing window");
+									_window.close();
+								} else {
+									onApplyMessage(message);
+								}
                         } catch(error) {
                                 console.error(error);
                         }
