@@ -1,7 +1,13 @@
+var initFg;
+var initBg;
+
+
 function setSketchData(bg, fg, isLrg) {
 	f = fg;
 	b = bg;
 	update();
+	iniFg = fg;
+	initBg = bg;
 
 	document.getElementById("normal").style.backgroundColor = bg;
 	document.getElementById("normal").style.color = fg;
@@ -17,7 +23,6 @@ function setSketchData(bg, fg, isLrg) {
 	}
 }
 
-
 function apply(){
 	var message = {
 		"background": document.getElementById("bHex").value,
@@ -28,21 +33,6 @@ function apply(){
 			JSON.stringify(message)
 	);
 };
-
-// Auto Update Sketch Canvas with Slider Colors
-// function autoUpdate(){
-// 	console.log("I'm in autoUpdate")
-// 	console.log("Coming from " + this.id)
-
-// 	var message = {
-// 		"background": b,
-// 		"foreground": f
-// 	};
-
-// 	window.webkit.messageHandlers.sketchPlugin.postMessage(
-// 		JSON.stringify(message)
-// 	);
-// }
 
 document.addEventListener("DOMContentLoaded", () => {
 	//	Set up apply to trigger on button press
@@ -58,3 +48,4 @@ document.addEventListener("DOMContentLoaded", () => {
 		apply();
 	});
 });
+
