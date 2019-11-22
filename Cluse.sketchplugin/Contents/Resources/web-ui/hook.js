@@ -1,3 +1,9 @@
+/* function */
+function autoUpdate(){
+	console.log("I'm in autoUpdate")
+	console.log(this.value)
+}
+
 function setSketchData(bg, fg, isLrg) {
 	f = fg;
 	b = bg;
@@ -15,13 +21,10 @@ function setSketchData(bg, fg, isLrg) {
 	else {
 		document.getElementById("js-txtSize").innerHTML = "Normal Text";
 	}
-}
 
-function apply(){
-	window.webkit.messageHandlers.sketchPlugin.postMessage(
-			JSON.stringify({"testMessage": "hello from hook.js!"})
-	);
-};
+	/* event listener */
+	document.getElementById("bLightness").addEventListener('change', autoUpdate);
+}
 
 function apply(){
 	var message = {

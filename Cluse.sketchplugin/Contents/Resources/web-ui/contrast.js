@@ -108,41 +108,33 @@ function checkContrast() {
         if (ratio >= 7) {
             // normal AAA pass
             $('#AAA').attr("src","img/yes.svg");
-            console.log("normal AAA pass")
         } else {
             // normal AAA fail
             $('#AAA').attr("src","img/no.svg");
-            console.log("normal AAA fail")
         }
 
         if (ratio >= 4.5) {
             // normal-size AA pass
             $('#AA').attr("src","img/yes.svg");
-            console.log("normal AA pass")
         } else {
             // normal-size AA fail
             $('#AA').attr("src","img/no.svg");
-            console.log("normal AA fail")
         }
     } else if (document.getElementById("js-txtSize").innerHTML == "Large Text") {
         if (ratio >= 3) {
             // big AA pass
             $('#AA').attr("src","img/yes.svg");
-            console.log("large AA pass")
         } else {
             // big AA fail
             $('#AA').attr("src","img/no.svg");
-            console.log("large AA fail")
         }
 
         if (ratio >= 4.5) {
             // big AAA pass
             $('#AAA').attr("src","img/yes.svg");
-            console.log("large AAA pass")
         } else {
             // big AAA fail
             $('#AAA').attr("src","img/no.svg");
-            console.log("large AAA fail")
         }
     } else {
         console.error("#js-txtSize value is neither normal nor large text");
