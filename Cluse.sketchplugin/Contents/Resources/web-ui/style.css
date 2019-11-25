@@ -51,7 +51,7 @@ body {
 	letter-spacing: 0.3px;
 }
 
-/* TOP CHUNK*/
+/* BOTTOM CHUNK*/
 
 .top-chunk {
 	display: flex;
@@ -59,7 +59,7 @@ body {
 	margin-top: 5px;
 	margin-right: 30px;
 	padding-bottom: 20px;
-	border-bottom: 1px #D7D7D7 solid;
+	border-top: 1px #D7D7D7 solid;
 }
 
 .title-tool {
@@ -116,8 +116,11 @@ body {
 	margin-left: 45px;	
 }
 
+.tool {
+	margin-top: 10px;
+}
 
-/* BOTTOM CHUNK */
+/* TOP CHUNK */
 .color-settings {
 	display: flex;
 	margin-left: 30px;
