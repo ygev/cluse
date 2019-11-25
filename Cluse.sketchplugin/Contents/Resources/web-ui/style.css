@@ -14,7 +14,7 @@ body {
 /* WHITE HEADER */
 
 .bg-white {
-	background-color: #F7F6F7;
+	background-color: #fff;
 	height: 60px;
 	width: auto;
 	border-bottom: 1px #D7D7D7 solid;
@@ -98,8 +98,6 @@ body {
 	width: 20px;
 	margin-right: 10px;
 }
-
-
 
 .button-auto {
 	width: 50px;
