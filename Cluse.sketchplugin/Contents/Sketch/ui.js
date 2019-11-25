@@ -45,7 +45,7 @@ function createWebView(pageURL, onApplyMessage, onLoadFinish){
 
 function createWindow(){
 	const window = NSPanel.alloc().initWithContentRect_styleMask_backing_defer(
-		NSMakeRect(0, 0, 440, 490),
+		NSMakeRect(0, 0, 420, 420),
 		NSWindowStyleMaskClosable | NSWindowStyleMaskTitled | NSWindowStyleMaskResizable,
 		NSBackingStoreBuffered,
 		false
@@ -66,7 +66,7 @@ function createWindow(){
 
 	window.titlebarAppearsTransparent = true;
 
-	window.backgroundColor = NSColor.colorWithRed_green_blue_alpha(0.97, 0.96, 0.97, 1.0);
+	window.backgroundColor = NSColor.colorWithRed_green_blue_alpha(1.0, 1.0, 1.0, 1.0);
 
 	return window;
 };

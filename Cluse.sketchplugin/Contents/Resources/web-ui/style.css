@@ -15,7 +15,7 @@ body {
 
 .bg-white {
 	background-color: #fff;
-	height: 60px;
+	height: 45px;
 	width: auto;
 	border-bottom: 1px #D7D7D7 solid;
 	display: flex;
@@ -37,18 +37,16 @@ body {
 }
 .title-tab {
 	font-family: SFUIDisplay-Bold;
-	font-size: 15px;
+	font-size: 14px;
 	line-height: 20px;
 	color: #262626;
-	letter-spacing: 0;
 }
 
 .subtitle-tab {
 	font-family: SFUIDisplay-Medium;
-	font-size: 14px;
-	line-height: 20px;
-	color: #777;
-	letter-spacing: 0.3px;
+	font-size: 13px;
+	line-height: 18px;
+	color: #757575;
 }
 
 /* BOTTOM CHUNK*/
