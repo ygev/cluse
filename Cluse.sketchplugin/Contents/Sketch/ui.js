@@ -63,6 +63,7 @@ function createWindow(){
 
 	window.standardWindowButton(NSWindowZoomButton).hidden = true;
 	window.standardWindowButton(NSWindowMiniaturizeButton).hidden = true;
+	window.standardWindowButton(NSWindowCloseButton).hidden = true;
 
 	window.titlebarAppearsTransparent = true;
 
