@@ -67,7 +67,7 @@ body {
 	font-size: 11px;
 	color: #707070;
 	text-transform: uppercase;
-	line-height: 24px;
+	line-height: 32px;
 }
 
 .title-return {
@@ -137,6 +137,7 @@ body {
 	border-radius: 14.5px;
 	padding-top: 6px;
 	padding-bottom: 6px;
+	margin-top: 5px;
 	/* Input Font */
 	font-family: SFUIDisplay-Medium;
 	font-size: 13px;
@@ -155,7 +156,7 @@ input[type='range'] {
   }
   
   .slider-input {
-	margin-top: 20px;
+	margin-top: 15px;
 	appearance: none;
 	border-radius: 3em;
 	height: 1.5em;
