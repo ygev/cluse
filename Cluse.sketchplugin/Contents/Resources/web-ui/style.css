@@ -81,24 +81,25 @@ body {
 	display: flex;
 }
 
-.wcag-values {
+.wcag-value {
 	display: flex;
-	flex-direction: column;
-}
-
-.wcag-levels {
-	display: flex;
-	flex-direction: column;
-}
-
-.img-status {
-	margin-left: 20px;
+	flex-direction: row;
+	align-items: center;
 	margin-bottom: 15px;
+	margin-top:5px;
 }
 
 .wcag-level {
-	margin-bottom: 15px;
+	 padding-top: 3px;
+	 font-size: 16px;
 }
+
+.img-status {
+	width: 20px;
+	margin-right: 10px;
+}
+
+
 
 .button-auto {
 	width: 50px;
