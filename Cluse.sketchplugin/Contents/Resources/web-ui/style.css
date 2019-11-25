@@ -118,36 +118,6 @@ body {
 	margin-left: 45px;	
 }
 
-.circle {
-	background-color: #006CF4;
-	border: 1px solid rgba(38,38,38,0.50);
-	border-radius: 100%;
-	width: 140px;
-	height: 140px;
-	text-align: center;
-	line-height: 130px;
-	font-weight: 400;
-	color: #fff;
-	font-size: 72px;
-	text-align: center;
-}
-
-.contrast {
-	background-color: #fff;
-	position: absolute;
-	min-width: 50px;
-	font-family: SFUIDisplay-Bold;
-	font-size: 14px;
-	color: #2A2A2A;
-	letter-spacing: 0;
-	text-align: center;
-	right: 50px;
-	padding: 6px;
-	border: 1px solid #C4C4C4;
-	box-shadow: 0 0 2px 0 rgba(0,0,0,0.20);
-	border-radius: 14.5px;
-	transition: 0.2s ease;
-}
 
 /* BOTTOM CHUNK */
 .color-settings {
