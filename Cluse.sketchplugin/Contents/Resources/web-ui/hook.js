@@ -84,6 +84,20 @@ function closeWindow() {
 	);
 }
 
+// When you press undo on BG, reset the BG to the original color.
+document.addEventListener("DOMContentLoaded", () => {
+	document.getElementById("js-reset-bg").addEventListener("click", () => {
+		resetBg();
+	});
+});
+
+// When you press undo on FG, reset the FG to the original color.
+document.addEventListener("DOMContentLoaded", () => {
+	document.getElementById("js-reset-fg").addEventListener("click", () => {
+		resetBg();
+	});
+});
+
 // When you press cancel, reset everything to original and close window.
 document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("js-cancel").addEventListener("click", () => {
