@@ -12,34 +12,7 @@
 				<h2 class="subtitle-tab">Ensure your text color contrast passes WCAG.</h2>
 			</div>	
 		</header>
-		<section class="top-chunk">
-			<div class="col-left">
-				<div class="section_wcag-status tool">
-					<h3 class="title-tool">WCAG Compliance Status</h3>
-					<div class="wcag-wrapper">
-					<div class="wcag-levels">
-							<p class="title-return wcag-level">AA</p>
-							<p class="title-return wcag-level">AAA</p>
-					</div>
-					<div class="wcag-values">
-							<img id="AA" src="img/no.svg" alt="" class="img-status">
-							<img id="AAA" src="img/no.svg" alt="" class="img-status">	
-					</div>
-			
-				</div>
-				<div class="section_text-class tool">
-						<h3 class="title-tool">Text Classification</h3>
-						<p id="js-txtSize" class="title-return">Large Text</p>
-				</div>
-				</div>
-			</div>
-			<div class="col-right">
-					<div class="circle-wrapper">
-						<div id="ratio"  class="contrast">8.5:1</div>
-						<div id="normal" class="circle">Aa</div>
-						</div>
-			</div>
-		</section>
+
 		<section class="bottom-chunk">
 			<form id ="contrastForm" class="color-settings">
 				<fieldset class=" col-left color-background">
@@ -63,6 +36,37 @@
 				</fieldset>
 			</form>
         </section>
+
+		<section class="top-chunk">
+			<div class="col-left">
+				<div class="section_wcag-status tool">
+					<h3 class="title-tool">WCAG Compliance Status</h3>
+					<div class="wcag-wrapper">
+					<div class="wcag-levels">
+							<p class="title-return wcag-level">AA</p>
+							<p class="title-return wcag-level">AAA</p>
+					</div>
+					<div class="wcag-values">
+							<img id="AA" src="img/no.svg" alt="" class="img-status">
+							<img id="AAA" src="img/no.svg" alt="" class="img-status">	
+					</div>
+			
+				</div>
+				
+				</div>
+			</div>
+			<div class="col-right">
+					<div class="section_text-class tool">
+							<h3 class="title-tool">Text Classification</h3>
+							<p id="js-txtSize" class="title-return">Large Text</p>
+					</div>
+					<div class="section_text-class tool">
+							<h3 class="title-tool">Contrast Ratio</h3>
+							<p id="ratio" class="title-return">8.5:1</p>
+					</div>
+			</div>
+		</div>
+		</section>
         <section class="cta">
             <button id="js-ok" class="button-primary">OK</button>
             <button id="js-cancel" class="button-secondary">Cancel</button>
