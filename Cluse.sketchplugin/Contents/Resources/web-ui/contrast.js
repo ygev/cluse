@@ -6,8 +6,6 @@ $(function() {
         $colorInputs = $textInputs.add('#fPick, #bPick'),
         $colorSliders = $('#fColorLightness, #bColorLightness');
 
-    // update() here?
-
     $textInputs.focus(function() {
         $(this).select();
     });
