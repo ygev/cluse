@@ -42,10 +42,13 @@ function resetBg() {
 	var messageCancel = {
 		"background": initBg,
 	};
-	document.getElementById("bHex").value = initBg.substring(0,7);
+
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
 			JSON.stringify(messageCancel)
 	);
+
+	bColor = initBg.substring(0,7);
+	document.getElementById("bHex").value = initBg.substring(0,7);
 }
 
 
@@ -54,10 +57,13 @@ function resetFg() {
 	var messageCancel = {
 		"foreground": initFg,
 	};
-	document.getElementById("fHex").value = initFg.substring(0,7);
+
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
 			JSON.stringify(messageCancel)
 	);
+
+	fColor = initFg.substring(0,7);
+	document.getElementById("fHex").value = initFg.substring(0,7);
 }
 
 
