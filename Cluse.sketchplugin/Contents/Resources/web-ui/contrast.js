@@ -1,10 +1,10 @@
-var f, b;
+var fColor, bColor;
 
 $(function() {
 
     var $textInputs = $('#fHex, #bHex'),
         $colorInputs = $textInputs.add('#fPick, #bPick'),
-        $colorSliders = $('#fLightness, #bLightness');
+        $colorSliders = $('#fColorLightness, #bColorLightness');
 
     initialize();
 
@@ -14,20 +14,20 @@ $(function() {
 
     $colorSliders.mousedown(function() {
         $(this).mousemove(function() {
-            changeHue($(this).attr('id').substr(0, 1));
+            changeHue($(this).attr('id').substr(0, 1) + 'Color');
         });
     }).on('mouseup mouseout', function() {
         $(this).unbind('mousemove');
     });
 
     $colorSliders.change(function() {
-        changeHue($(this).attr('id').substr(0, 1));
+        changeHue($(this).attr('id').substr(0, 1) + 'Color');
     });
 
     $colorInputs.change(function() {
         var $this = $(this),
             color = $this.val(),
-            context = $this.attr('id').substr(0, 1);
+            context = $this.attr('id').substr(0, 1) + 'Color';
 
         $('#' + context + 'Error').slideUp();
         if (color.substr(0, 1) !== '#') color = '#' + color;
@@ -59,19 +59,19 @@ $(function() {
 
 // Update all when one is changed
 function update() {
-    $('#fHex, #fPick').val(f);
-    $('#bHex, #bPick').val(b);
+    $('#fHex, #fPick').val(fColor);
+    $('#bHex, #bPick').val(bColor);
     $('#normal, #big, #ui').css({
-        'color': f,
-        'background-color': b
+        'color': fColor,
+        'background-color': bColor
     });
 
     // Update lightness sliders
-    var fHSL = RGBtoHSL(getRGB(f.substr(1, 2)), getRGB(f.substr(3, 2)), getRGB(f.substr(-2)));
-    var bHSL = RGBtoHSL(getRGB(b.substr(1, 2)), getRGB(b.substr(3, 2)), getRGB(b.substr(-2)));
-    $('#fLightness').val(Math.round(fHSL[2]))
+    var fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
+    var bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
+    $('#fColorLightness').val(Math.round(fHSL[2]))
         .next('div.gradient').css('background', 'linear-gradient(to right,hsl(' + fHSL[0] + ',' + fHSL[1] + '%,0%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,50%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,100%))')
-    $('#bLightness').val(Math.round(bHSL[2]))
+    $('#bColorLightness').val(Math.round(bHSL[2]))
         .next('div.gradient').css('background', 'linear-gradient(to right,hsl(' + bHSL[0] + ',' + bHSL[1] + '%,0%), hsl(' + bHSL[0] + ',' + bHSL[1] + '%,50%), hsl(' + bHSL[0] + ',' + bHSL[1] + '%,100%))');
 
     // Update contrast ratio
@@ -91,8 +91,8 @@ function changeHue(context) {
 }
 
 function checkContrast() {
-    var L1 = getL(f),
-        L2 = getL(b),
+    var L1 = getL(fColor),
+        L2 = getL(bColor),
         ratio = (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
     // Dec2() truncates the number to 2 decimal places without rounding.
     $('#ratio').html('<b>' + Dec2((ratio * 100) / 100) + '</b>:1');

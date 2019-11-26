@@ -18,13 +18,12 @@
 				<fieldset class=" col-left color-background">
 					<h3 class="title-tool">Background Color</h3>
 					<div class="input-wrapper">
-						<input id="bHex" maxlength="7" class="color-input" type="text" name="head"
-					value="#006CF4">
+						<input id="bHex" maxlength="7" class="color-input" type="text" name="head" value="#006CF4">
 					<button id="js-reset-bg" class="btn-reset"></button>
 					</div>
 					<div class="color-slider">
-							<input id="bLightness" class="slider-input hex-value" type="range" min="0" value="50" max="100" step="1">
-						  </div>
+						<input id="bColorLightness" class="slider-input hex-value" type="range" min="0" value="50" max="100" step="1">
+					</div>
 				</fieldset>
 				<fieldset class="col-right color-foreground">
 					<h3 class="title-tool">Foreground Color</h3>
@@ -33,8 +32,8 @@
 						<button id="js-reset-fg" class="btn-reset"></button>
 						</div>
 						<div class="color-slider">
-								<input id="fLightness" class="slider-input hex-value" type="range" min="0" value="50" max="100" step="1">
-							  </div>
+							<input id="fColorLightness" class="slider-input hex-value" type="range" min="0" value="50" max="100" step="1">
+						</div>
 				</fieldset>
 			</form>
         </section>
@@ -83,7 +82,7 @@
 	<script src="hook.js"></script>
 	<script>
 		function initialize() {
-			f = '#0000FF', b = '#FFFFFF';
+			fColor = '#0000FF', bColor = '#FFFFFF';
 			update();
 		}
 	</script>
