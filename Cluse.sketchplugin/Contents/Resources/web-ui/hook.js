@@ -4,8 +4,8 @@ var initBg;
 
 // Get values from Sketch.
 function setSketchData(bg, fg, isLrg) {
-	f = fg;
-	b = bg;
+	fColor = fg.substring(0,7);
+	bColor = bg.substring(0,7);
 	update();
 	initFg = fg;
 	initBg = bg;
@@ -36,9 +36,11 @@ function apply(){
 	);
 };
 
-
 // Reset BG to Original
 function resetBg() {
+	bColor = initBg.substring(0,7);
+	document.getElementById("bHex").value = initBg.substring(0,7);
+
 	var messageCancel = {
 		"background": initBg,
 	};
@@ -46,14 +48,14 @@ function resetBg() {
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
 			JSON.stringify(messageCancel)
 	);
-
-	bColor = initBg.substring(0,7);
-	document.getElementById("bHex").value = initBg.substring(0,7);
 }
 
 
 // Reset FG to Original
 function resetFg() {
+	fColor = initFg.substring(0,7);
+	document.getElementById("fHex").value = initFg.substring(0,7);
+
 	var messageCancel = {
 		"foreground": initFg,
 	};
@@ -61,9 +63,6 @@ function resetFg() {
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
 			JSON.stringify(messageCancel)
 	);
-
-	fColor = initFg.substring(0,7);
-	document.getElementById("fHex").value = initFg.substring(0,7);
 }
 
 
