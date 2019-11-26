@@ -14,7 +14,7 @@
 		{
 			"script": "index.js",
 			"shortcut": "cmd + shift + c",
-			"name": "Cluse",
+			"name": "🔹Cluse",
 			"handlers": {
 				"run": "onRun"
 			},
