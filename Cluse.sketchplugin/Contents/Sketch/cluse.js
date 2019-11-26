@@ -17,20 +17,22 @@ function onLoad(webView) {
         var isLrgSketch = findTxtSize();
 
         console.log("calling " + `setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`);
-        // webView.evaluateJavaScript_completionHandler("setSketchData('#fff', '#000')", null);
 
         webView.evaluateJavaScript_completionHandler(`setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`, null);
 }
 
 // Apply Color to Button
 function onApply(options) {
-        // UI.alert("Test Alert", JSON.stringify(options));
-        // UI.alert("Test Alert", "backgroundis " + options.background + " and foregound is " + options.foreground);
         var doc = sketch.getSelectedDocument();
-        var selection = doc.selectedLayers;       
-        selection.layers[0].style.fills[0].color = options.background;
-        selection.layers[1].style.textColor = options.foreground;
+        var selection = doc.selectedLayers;
 
+        if (options.background != null) {
+                selection.layers[0].style.fills[0].color = options.background;
+        }
+
+        if (options.foreground != null) {
+                selection.layers[1].style.textColor = options.foreground;
+        }
 };
 
 // Determine Text Size

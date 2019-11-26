@@ -42,7 +42,7 @@ function resetBg() {
 	var messageCancel = {
 		"background": initBg,
 	};
-
+	document.getElementById("bHex").value = initBg.substring(0,7);
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
 			JSON.stringify(messageCancel)
 	);
@@ -52,9 +52,9 @@ function resetBg() {
 // Reset FG to Original
 function resetFg() {
 	var messageCancel = {
-		"foreground": initFg
+		"foreground": initFg,
 	};
-
+	document.getElementById("fHex").value = initFg.substring(0,7);
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
 			JSON.stringify(messageCancel)
 	);
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // When you press undo on FG, reset the FG to the original color.
 document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("js-reset-fg").addEventListener("click", () => {
-		resetBg();
+		resetFg();
 	});
 });
 
