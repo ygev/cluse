@@ -13,6 +13,7 @@
 	"commands": [
 		{
 			"script": "index.js",
+			"shortcut": "cmd + shift + c",
 			"name": "Cluse",
 			"handlers": {
 				"run": "onRun"
