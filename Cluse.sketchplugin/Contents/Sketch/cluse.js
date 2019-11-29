@@ -6,19 +6,24 @@ var Settings = require('sketch/settings');
 
 
 function onLoad(webView) {
-        console.error("onLoad()");
-        var doc = sketch.getSelectedDocument();
-        var selection = doc.selectedLayers;       
-        var bgSketch = selection.layers[0].style.fills[0].color;
-        var fgSketch = selection.layers[1].style.textColor;
-        console.log("selected #: " + selection.length);
-        console.log("layer 0: " + bgSketch);
-        console.log("layer 1: " + fgSketch);
-        var isLrgSketch = findTxtSize();
+        if (layerChecker()) {
+                var doc = sketch.getSelectedDocument();
+                var selection = doc.selectedLayers;       
+                var bgSketch = selection.layers[0].style.fills[0].color;
+                var fgSketch = selection.layers[1].style.textColor;
+                console.log("selected #: " + selection.length);
+                console.log("layer 0: " + bgSketch);
+                console.log("layer 1: " + fgSketch);
+                var isLrgSketch = findTxtSize();
 
-        console.log("calling " + `setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`);
+                console.log("calling " + `setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`);
 
-        webView.evaluateJavaScript_completionHandler(`setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`, null);
+                webView.evaluateJavaScript_completionHandler(`setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`, null);
+
+                return true;
+        } else {
+                return false;
+        }
 }
 
 // Apply Color to Button
@@ -63,5 +68,23 @@ function findTxtSize(){
 }
 
 
+function layerChecker() {
+        console.error("Entering layerChecker()");
+        var doc = sketch.getSelectedDocument();
+        var selection = doc.selectedLayers;    
+        const selectedLayer = doc.selectedLayers.layers[0];
 
-module.exports = { onApply, onLoad };    
+        if(!selectedLayer){ // if user selected no layers, display error.
+                UI.message('⚠️ No layers are selected.');
+                return false;
+        } else if(selection.length < 2){ // if user selected 2- layers, display error.
+                UI.message('⚠️ Fewer than 2 layers are selected.');
+                return false;
+        } else if(selection.length > 2){ // if user selected 2+ layers, display error.
+                UI.message('⚠️ More than 2 layers are selected.');
+                return false;
+        }
+        return true;
+}
+
+module.exports = { onApply, onLoad};    

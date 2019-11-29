@@ -80,8 +80,9 @@ function showWindow(window){
 
 function loadAndShow(baseURL, onApplyMessage, onLoad){
 	if(_window && _webView) {
-		onLoad(_webView);
-		showWindow(_window);
+		if (onLoad(_webView)) {
+			showWindow(_window);
+		}
 
 		return;
 	}
@@ -92,8 +93,9 @@ function loadAndShow(baseURL, onApplyMessage, onLoad){
 
 	const window = createWindow();
 	_webView = createWebView(pageURL, onApplyMessage, webView => {
-		onLoad(webView);
-		showWindow(window);
+		if (onLoad(webView)) {
+			showWindow(window);
+		}
 	});
 
 	window.contentView = _webView;
