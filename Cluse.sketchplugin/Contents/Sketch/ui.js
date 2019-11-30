@@ -13,20 +13,20 @@ function createWebView(pageURL, onApplyMessage, onLoadFinish){
 			onLoadFinish(webView);
 		},
 		"userContentController:didReceiveScriptMessage:": (_, wkMessage) => {
-                        console.log("didReceiveScriptMessage: " + wkMessage.body())
+			console.log("didReceiveScriptMessage: " + wkMessage.body())
 
-                        try {
-								const message = JSON.parse(wkMessage.body());
-								
-								if (message.close == true) {
-									console.log("closing window");
-									_window.close();
-								} else {
-									onApplyMessage(message);
-								}
-                        } catch(error) {
-                                console.error(error);
-                        }
+			try {
+					const message = JSON.parse(wkMessage.body());
+					
+					if (message.close == true) {
+						console.log("closing window");
+						_window.close();
+					} else {
+						onApplyMessage(message);
+					}
+			} catch(error) {
+					console.error(error);
+			}
 		}
 	}).getClassInstance();
 
@@ -45,7 +45,7 @@ function createWebView(pageURL, onApplyMessage, onLoadFinish){
 
 function createWindow(){
 	const window = NSPanel.alloc().initWithContentRect_styleMask_backing_defer(
-		NSMakeRect(0, 0, 420, 420),
+		NSMakeRect(0, 0, 440, 430),
 		NSWindowStyleMaskClosable | NSWindowStyleMaskTitled | NSWindowStyleMaskResizable,
 		NSBackingStoreBuffered,
 		false
@@ -54,7 +54,8 @@ function createWindow(){
 	window.becomesKeyOnlyIfNeeded = true;
 	window.floatingPanel = true;
 
-	window.frameAutosaveName = "cluse-panel-frame";
+	// Increment++ first number of the frameAutosaveName value every time you change NSMakeRect!
+	window.frameAutosaveName = "6-cluse-panel-frame";
 
 	window.minSize = window.frame().size;
 	window.maxSize = window.frame().size;
