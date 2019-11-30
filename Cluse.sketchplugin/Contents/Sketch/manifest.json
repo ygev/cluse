@@ -22,6 +22,8 @@
 	 	}
 	],
 
+	"icon": "icon.png",
+
 	"menu": {
 		"items": [
 			"open"
