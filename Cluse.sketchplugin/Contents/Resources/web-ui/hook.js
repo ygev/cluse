@@ -5,7 +5,9 @@ var initBg;
 // Get values from Sketch.
 function setSketchData(bg, fg, isLrg) {
 	fColor = fg.substring(0,7);
+	fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
 	bColor = bg.substring(0,7);
+	bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
 	update();
 	initFg = fg;
 	initBg = bg;

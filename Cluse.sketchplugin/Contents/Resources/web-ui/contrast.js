@@ -1,4 +1,4 @@
-var fColor, bColor;
+var fColor, bColor, fHSL = [0, 0, 0], bHSL = [0, 0, 0];
 
 $(function() {
 
@@ -65,8 +65,6 @@ function update() {
     });
 
     // Update lightness sliders
-    var fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
-    var bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
     $('#fColorLightness').val(Math.round(fHSL[2]))
         .next('div.gradient').css('background', 'linear-gradient(to right,hsl(' + fHSL[0] + ',' + fHSL[1] + '%,0%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,50%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,100%))')
     $('#bColorLightness').val(Math.round(bHSL[2]))
@@ -79,8 +77,10 @@ function update() {
 
 // Calculation Functions
 function changeHue(context) {
-    HSL = RGBtoHSL(getRGB(eval(context).substr(1, 2)), getRGB(eval(context).substr(3, 2)), getRGB(eval(context).substr(-2)));
-    RGB = HSLtoRGB(HSL[0], HSL[1], $('#' + context + 'Lightness').val());
+    var newLightness = parseInt($('#' + context + 'Lightness').val());
+    HSL = [eval(context.substr(0, 1) + "HSL")[0], eval(context.substr(0, 1) + "HSL")[1], newLightness]
+    eval(context.substr(0, 1) + "HSL = " + JSON.stringify(HSL))
+    RGB = HSLtoRGB(HSL[0], HSL[1], HSL[2])
     for (var i = 0; i < 3; i++) {
         RGB[i] = (RGB[i] >= 16) ? RGB[i].toString(16) : '0' + RGB[i].toString(16);
     }
