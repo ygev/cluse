@@ -73,7 +73,7 @@ function update() {
 
     apply();
 
-    // resetButtonState();
+    resetButtonState();
 }
 
 // Calculation Functions
