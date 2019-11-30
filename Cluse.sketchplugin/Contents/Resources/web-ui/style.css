@@ -1,13 +1,20 @@
+@font-face {
+	font-family: "SFUIDisplay-Bold";
+	src: url("fonts/SF-UI-Display-Bold.woff") format("woff");
+}
+
+@font-face {
+	font-family: "SFUIDisplay-Medium";
+	src: url("fonts/SF-UI-Display-Medium.woff") format("woff");
+}
+
 body,
 html {
-	/* background-color: yellow; */
 	padding: 0;
 	margin: 0;
 	width: 100%;
 	height: 100%;
-	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
-body {
+	font-family: -apple-system, sans-serif;
 	background-color: #F7F6F7;
 }
 
@@ -44,14 +51,14 @@ body {
 	margin-left: 15px;
 }
 .title-tab {
-	font-family: SFUIDisplay-Bold;
+	font-family: "SFUIDisplay-Bold";
 	font-size: 14px;
 	line-height: 20px;
 	color: #262626;
 }
 
 .subtitle-tab {
-	font-family: SFUIDisplay-Medium;
+	font-family: "SFUIDisplay-Medium";
 	font-size: 13px;
 	line-height: 18px;
 	color: #757575;
@@ -69,7 +76,7 @@ body {
 }
 
 .title-tool {
-	font-family: SFUIDisplay-Bold;
+	font-family: "SFUIDisplay-Bold";
 	font-size: 10px;
 	color: #707070;
 	text-transform: uppercase;
@@ -77,7 +84,7 @@ body {
 }
 
 .title-return {
-	font-family: SFUIDisplay-Medium;
+	font-family: "SFUIDisplay-Medium";
 	font-size: 15px;
 	color: #000000;
 	letter-spacing: -0.08px;
@@ -143,7 +150,7 @@ body {
 	padding-top: 6px;
 	padding-bottom: 6px;
 	/* Input Font */
-	font-family: SFUIDisplay-Medium;
+	font-family: "SFUIDisplay-Medium";
 	font-size: 13px;
 	color: #fff;
 	text-transform: uppercase;
