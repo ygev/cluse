@@ -65,10 +65,8 @@ function update() {
     });
 
     // Update lightness sliders
-    $('#fColorLightness').val(Math.round(fHSL[2]))
-        .next('div.gradient').css('background', 'linear-gradient(to right,hsl(' + fHSL[0] + ',' + fHSL[1] + '%,0%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,50%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,100%))')
-    $('#bColorLightness').val(Math.round(bHSL[2]))
-        .next('div.gradient').css('background', 'linear-gradient(to right,hsl(' + bHSL[0] + ',' + bHSL[1] + '%,0%), hsl(' + bHSL[0] + ',' + bHSL[1] + '%,50%), hsl(' + bHSL[0] + ',' + bHSL[1] + '%,100%))');
+    $('#fColorLightness').val(Math.round(fHSL[2])).css('background', 'linear-gradient(to right,hsl(' + fHSL[0] + ',' + fHSL[1] + '%,0%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,50%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,100%))')
+    $('#bColorLightness').val(Math.round(bHSL[2])).css('background', 'linear-gradient(to right,hsl(' + bHSL[0] + ',' + bHSL[1] + '%,0%), hsl(' + bHSL[0] + ',' + bHSL[1] + '%,50%), hsl(' + bHSL[0] + ',' + bHSL[1] + '%,100%))');
 
     // Update contrast ratio
     checkContrast();
