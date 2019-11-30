@@ -72,7 +72,10 @@ function update() {
 
     // Update contrast ratio
     checkContrast();
+
     apply();
+
+    // resetButtonState();
 }
 
 // Calculation Functions

@@ -38,6 +38,15 @@ function apply(){
 	);
 };
 
+// function resetButtonState() {
+// 	console.log("fg is" + fg);
+// 	console.log("initFg is" + initFg);
+	//  Reset Button Appears if you change the value.
+	// if (fg != initFg) {
+	// 	document.getElementById("js-reset-fg").style.display = "block";
+	// }
+// }
+
 // Reset BG to Original
 function resetBg() {
 	bColor = initBg.substring(0,7);
