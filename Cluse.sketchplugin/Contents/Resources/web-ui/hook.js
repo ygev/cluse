@@ -1,13 +1,14 @@
 // Set initial values.
-var initFg;
-var initBg;
+var initFg, initBg, initFgLightness, initBgLightness;
 
 // Get values from Sketch.
 function setSketchData(bg, fg, isLrg) {
 	fColor = fg.substring(0,7);
 	fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
+	initFgLightness = fHSL[2];
 	bColor = bg.substring(0,7);
 	bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
+	initBgLightness = bHSL[2];
 	update();
 	initFg = fg;
 	initBg = bg;
@@ -20,8 +21,7 @@ function setSketchData(bg, fg, isLrg) {
 
 	if (isLrg){
 		document.getElementById("js-txtSize").innerHTML = "Large Text";
-	}
-	else {
+	} else {
 		document.getElementById("js-txtSize").innerHTML = "Normal Text";
 	}
 }
@@ -41,7 +41,9 @@ function apply(){
 // Reset BG to Original
 function resetBg() {
 	bColor = initBg.substring(0,7);
+	bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
 	document.getElementById("bHex").value = initBg.substring(0,7);
+	document.getElementById("bColorLightness").value = initBgLightness;
 
 	var messageCancel = {
 		"background": initBg,
@@ -52,11 +54,12 @@ function resetBg() {
 	);
 }
 
-
 // Reset FG to Original
 function resetFg() {
 	fColor = initFg.substring(0,7);
+	fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
 	document.getElementById("fHex").value = initFg.substring(0,7);
+	document.getElementById("fColorLightness").value = initFgLightness;
 
 	var messageCancel = {
 		"foreground": initFg,
@@ -95,6 +98,7 @@ function closeWindow() {
 document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("js-reset-bg").addEventListener("click", () => {
 		resetBg();
+		checkContrast();
 	});
 });
 
@@ -102,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("js-reset-fg").addEventListener("click", () => {
 		resetFg();
+		checkContrast();
 	});
 });
 
@@ -128,4 +133,3 @@ document.addEventListener("DOMContentLoaded", () => {
 	// }
 	// });
 });
-
