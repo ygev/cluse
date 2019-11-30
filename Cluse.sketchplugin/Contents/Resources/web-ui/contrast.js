@@ -1,4 +1,4 @@
-var fColor, bColor, fHSL = [0, 0, 0], bHSL = [0, 0, 0];
+var fColor = '#FFFFFF', bColor = '#006CF4', fHSL = [0, 0, 100], bHSL = [213, 100, 47.8];
 
 $(function() {
 
@@ -32,7 +32,7 @@ $(function() {
         if (color.length == 4) color = '#' + color.substr(1, 1).repeat(2) + color.substr(2, 1).repeat(2) + color.substr(-1).repeat(2);
         $this.val(color);
 
-        // Validation
+        // Validations
         if (color.length !== 7 || isNaN(getRGB(color.substr(1)))) {
             $this.attr({
                 'aria-invalid': true,

@@ -13,8 +13,6 @@ function setSketchData(bg, fg, isLrg) {
 	initFg = fg;
 	initBg = bg;
 
-	document.getElementById("normal").style.backgroundColor = bg;
-	document.getElementById("normal").style.color = fg;
 	// Set value of inputs to the correct color hex value
 	document.getElementById("fHex").value = fg.substring(0,7);
 	document.getElementById("bHex").value = bg.substring(0,7);
