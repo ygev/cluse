@@ -14,7 +14,8 @@
 		{
 			"script": "index.js",
 			"shortcut": "cmd + shift + c",
-			"name": "🔹Cluse",
+			"name": "🔹Cluse Accessibility",
+			"description": "Check Color Contrast",
 			"handlers": {
 				"run": "onRun"
 			},
