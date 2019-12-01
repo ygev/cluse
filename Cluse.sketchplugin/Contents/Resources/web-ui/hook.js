@@ -142,12 +142,22 @@ document.addEventListener("DOMContentLoaded", () => {
 		apply();
 		closeWindow();
 	});
+});
 
-	//	Add ENTER key shortcut (broken)
-	// document.body.addEventListener("js-ok", e => {
-	// 	if(e.keyCode == 13) {
-	// 	apply();
-	// 	closeWindow();
-	// }
-	// });
+// Add ENTER key shortcut
+document.body.addEventListener("keydown", e => {
+	console.log('key pressed: ' + e.keyCode)
+	if (e.keyCode == 13) {
+		apply();
+		closeWindow();
+	}
+});
+
+// Add ESC key shortcut
+document.body.addEventListener("keydown", e => {
+	console.log('key pressed: ' + e.keyCode)
+	if (e.keyCode == 27) {
+		resetToInitial();
+		closeWindow();
+	}
 });
