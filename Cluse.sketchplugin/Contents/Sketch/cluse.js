@@ -4,6 +4,8 @@ var DataSupplier = require('sketch/data-supplier');
 var UI = require('sketch/ui');
 var Settings = require('sketch/settings');
 
+var initBgSketch, initFgSketch;
+
 
 function onLoad(webView) {
         if (layerChecker()) {
@@ -11,13 +13,14 @@ function onLoad(webView) {
                 var selection = doc.selectedLayers;       
                 var bgSketch = selection.layers[0].style.fills[0].color;
                 var fgSketch = selection.layers[1].style.textColor;
+                initBgSketch = bgSketch;
+                initFgSketch = fgSketch;
                 console.log("selected #: " + selection.length);
                 console.log("layer 0: " + bgSketch);
                 console.log("layer 1: " + fgSketch);
                 var isLrgSketch = findTxtSize();
 
                 console.log("calling " + `setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`);
-
                 webView.evaluateJavaScript_completionHandler(`setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`, null);
 
                 return true;
@@ -37,6 +40,11 @@ function onApply(options) {
 
         if (options.foreground != null) {
                 selection.layers[1].style.textColor = options.foreground;
+        }
+
+        if (options.cancel) {
+            selection.layers[0].style.fills[0].color = initBgSketch;
+            selection.layers[1].style.textColor = initFgSketch;
         }
 };
 

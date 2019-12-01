@@ -1,5 +1,5 @@
 // Set initial values.
-var initFg, initBg, initFgLightness, initBgLightness;
+var initFg, initBg, initFgLightness, initBgLightness, swapped = false;
 
 // Get values from Sketch.
 function setSketchData(bg, fg, isLrg) {
@@ -16,7 +16,7 @@ function setSketchData(bg, fg, isLrg) {
 	document.getElementById("fHex").value = fg.substring(0,7);
 	document.getElementById("bHex").value = bg.substring(0,7);
 
-	if (isLrg){
+	if (isLrg) {
 		document.getElementById("js-txtSize").innerHTML = "Large Text";
 	} else {
 		document.getElementById("js-txtSize").innerHTML = "Normal Text";
@@ -26,7 +26,7 @@ function setSketchData(bg, fg, isLrg) {
 }
 
 // Apply slider hexes to the canvas.
-function apply(){
+function apply() {
 	var message = {
 		"background": document.getElementById("bHex").value,
 		"foreground": document.getElementById("fHex").value
@@ -68,6 +68,7 @@ function resetBg() {
 	);
 
 	resetButtonState();
+	checkContrast();
 }
 
 // Reset FG to Original
@@ -86,14 +87,22 @@ function resetFg() {
 	);
 
 	resetButtonState();
+	checkContrast();
 }
 
 
 // Reset FG & BG to Original (For Cancel Button)
 function resetToInitial() {
+	if (swapped) {
+		swapHTML();
+		swapIds();
+		swapVars();
+		constructResetEventListeners();
+		swapped = false;
+	}
+
 	var messageCancel = {
-		"background": initBg,
-		"foreground": initFg
+		cancel: true
 	};
 
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
@@ -115,15 +124,11 @@ function closeWindow() {
 // Swap HTML between Foreground slider and Background slider 
 function swapHTML() {
 	// Swap titles and make flex into row-reverse.
-	if (document.getElementById("contrastForm").style.flexDirection == "row",
-		document.getElementById("bTitle").innerHTML == "Background Color"){
-		console.log("if swap");
+	if (document.getElementById("contrastForm").style.flexDirection == "row") {
 		document.getElementById("contrastForm").style.flexDirection = "row-reverse";
 		document.getElementById("bTitle").innerHTML = "Foreground Color";
 		document.getElementById("fTitle").innerHTML = "Background Color";
-	} else if (document.getElementById("contrastForm").style.flexDirection == "row-reverse",
-		document.getElementById("bTitle").innerHTML == "Foreground Color"){
-		console.log("else swap");
+	} else {
 		document.getElementById("contrastForm").style.flexDirection = "row";
 		document.getElementById("fTitle").innerHTML = "Foreground Color";
 		document.getElementById("bTitle").innerHTML = "Background Color";
@@ -134,21 +139,21 @@ function swapHTML() {
 function swapIds() {
 	// Swap bColorLightness & fColorLightness
 	var firstColorLightness = document.getElementById("fColorLightness"),
-    secondColorLightness = document.getElementById("bColorLightness");
+		secondColorLightness = document.getElementById("bColorLightness");
 	firstColorLightness.id = "bColorLightness";
 	secondColorLightness.id ="fColorLightness";
 	
 	// Swap bHex & fHex
 	var firstHex = document.getElementById("fHex"),
-    secondHex= document.getElementById("bHex");
+		secondHex = document.getElementById("bHex");
 	firstHex.id = "bHex";
 	secondHex.id ="fHex";
 
 	// Swap Reset Buttons (apply() works when this is commented out)
-	// var firstReset = document.getElementById("js-reset-fg"),
-    // secondReset= document.getElementById("js-reset-bg");
-	// firsReset.id = "js-reset-bg";
-	// secondReset.id ="js-reset-fg";
+	var firstReset = document.getElementById("js-reset-fg"),
+		secondReset = document.getElementById("js-reset-bg");
+	firstReset.id = "js-reset-bg";
+	secondReset.id ="js-reset-fg";
 }
 
 // Swap variables of Foreground and Background elements
@@ -167,37 +172,57 @@ function swapVars() {
 	var tempInit = initBg;
 	initBg = initFg;
 	initFg = tempInit;
+
+	// Swap initFgLightness & initBgLightness
+	var tempInitL = initBgLightness;
+	initBgLightness = initFgLightness;
+	initFgLightness = tempInitL;
 }
 
-// When you press undo on BG, reset the BG to the original color.
-document.addEventListener("DOMContentLoaded", () => {
-	document.getElementById("js-reset-bg").addEventListener("click", () => {
-		resetBg();
-		checkContrast();
-	});
-});
 
-// When you press undo on FG, reset the FG to the original color.
-document.addEventListener("DOMContentLoaded", () => {
-	document.getElementById("js-reset-fg").addEventListener("click", () => {
-		resetFg();
-		checkContrast();
-	});
-});
+function constructResetEventListeners() {
+	// remove any existing event listeners
+	document.getElementById("js-reset-fg").removeEventListener("click", resetBg);
+	document.getElementById("js-reset-fg").removeEventListener("click", resetFg);
+	document.getElementById("js-reset-bg").removeEventListener("click", resetFg);
+	document.getElementById("js-reset-bg").removeEventListener("click", resetBg);
 
-// When you press cancel, reset everything to original and close window.
+	// When you press undo on BG, reset the BG to the original color.
+	document.getElementById("js-reset-bg").addEventListener("click", resetBg);
+
+	// When you press undo on FG, reset the FG to the original color.
+	document.getElementById("js-reset-fg").addEventListener("click", resetFg);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+	// When you press undo, reset the BG or FG to the original color.
+	constructResetEventListeners();
+
+	// When you press cancel, reset everything to original and close window.
 	document.getElementById("js-cancel").addEventListener("click", () => {
 		resetToInitial();
 		closeWindow();
 	});
-});
 
-// When you press OK, apply the new colors and close the window.
-document.addEventListener("DOMContentLoaded", () => {
+	// When you press OK, apply the new colors and close the window.
 	document.getElementById("js-ok").addEventListener("click", () => {
 		apply();
 		closeWindow();
+	});
+
+	// When you press swap, swap foreground and background.
+	document.getElementById("js-swap").addEventListener("click", () => {
+		if (!swapped) {
+			swapped = true;
+		} else {
+			swapped = false;
+		}
+
+		swapHTML();
+		swapIds();
+		swapVars();
+		constructResetEventListeners();
+		apply();
 	});
 });
 
@@ -210,14 +235,4 @@ document.body.addEventListener("keydown", e => {
 		resetToInitial();
 		closeWindow();
 	}
-});
-
-// When you press swap, swap foreground and background.
-document.addEventListener("DOMContentLoaded", () => {
-	document.getElementById("js-swap").addEventListener("click", () => {
-		swapHTML();
-		swapIds();
-		swapVars();
-		apply();
-	});
 });
