@@ -112,6 +112,23 @@ function closeWindow() {
 	);
 }
 
+// Swap HTML between Foreground slider and Background slider 
+function swapHTML() {
+	if (document.getElementById("contrastForm").style.flexDirection == "row",
+		document.getElementById("bTitle").innerHTML == "Background Color"){
+		console.log("if swap");
+		document.getElementById("contrastForm").style.flexDirection = "row-reverse";
+		document.getElementById("bTitle").innerHTML = "Foreground Color";
+		document.getElementById("fTitle").innerHTML = "Background Color";
+	} else if (document.getElementById("contrastForm").style.flexDirection == "row-reverse",
+		document.getElementById("bTitle").innerHTML == "Foreground Color"){
+		console.log("else swap");
+		document.getElementById("contrastForm").style.flexDirection = "row";
+		document.getElementById("fTitle").innerHTML = "Foreground Color";
+		document.getElementById("bTitle").innerHTML = "Background Color";
+	}
+}
+
 // When you press undo on BG, reset the BG to the original color.
 document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("js-reset-bg").addEventListener("click", () => {
@@ -153,4 +170,11 @@ document.body.addEventListener("keydown", e => {
 		resetToInitial();
 		closeWindow();
 	}
+});
+
+// When you press swap, swap foreground and background.
+document.addEventListener("DOMContentLoaded", () => {
+	document.getElementById("js-swap").addEventListener("click", () => {
+		swapHTML();
+	});
 });

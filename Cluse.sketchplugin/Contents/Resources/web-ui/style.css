@@ -137,9 +137,10 @@ html {
 	display: inline-flex;
     margin-left: 30px;
     margin-right: 30px;
-    padding-bottom: 20px;
+	padding-bottom: 20px;
+	flex-direction: row;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .color-input {
@@ -202,15 +203,14 @@ input[type='range']::webkit-slider-thumb:hover {
   }
 
 
-  .reverse {
-	cursor: pointer;
+  .swap {
 	margin-bottom: 8px;
     margin-left: 10px;
 	margin-right: 10px;
 	transition: 0.2s ease-in-out;
   }
 
-  .reverse:hover {
+  .swap:hover {
 	  opacity: 0.7;
 	  transition: 0.2s ease-in-out;
   }
