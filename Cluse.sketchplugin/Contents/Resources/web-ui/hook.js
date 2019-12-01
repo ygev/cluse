@@ -114,6 +114,7 @@ function closeWindow() {
 
 // Swap HTML between Foreground slider and Background slider 
 function swapHTML() {
+	// Swap titles and make flex into row-reverse.
 	if (document.getElementById("contrastForm").style.flexDirection == "row",
 		document.getElementById("bTitle").innerHTML == "Background Color"){
 		console.log("if swap");
@@ -127,6 +128,45 @@ function swapHTML() {
 		document.getElementById("fTitle").innerHTML = "Foreground Color";
 		document.getElementById("bTitle").innerHTML = "Background Color";
 	}
+}
+
+// Swap Ids of Foreground and Background elements
+function swapIds() {
+	// Swap bColorLightness & fColorLightness
+	var firstColorLightness = document.getElementById("fColorLightness"),
+    secondColorLightness = document.getElementById("bColorLightness");
+	firstColorLightness.id = "bColorLightness";
+	secondColorLightness.id ="fColorLightness";
+	
+	// Swap bHex & fHex
+	var firstHex = document.getElementById("fHex"),
+    secondHex= document.getElementById("bHex");
+	firstHex.id = "bHex";
+	secondHex.id ="fHex";
+
+	// Swap Reset Buttons (apply() works when this is commented out)
+	// var firstReset = document.getElementById("js-reset-fg"),
+    // secondReset= document.getElementById("js-reset-bg");
+	// firsReset.id = "js-reset-bg";
+	// secondReset.id ="js-reset-fg";
+}
+
+// Swap variables of Foreground and Background elements
+function swapVars() {
+	// Swap bColor & fColor
+	var tempColor = bColor;
+	bColor = fColor;
+	fColor = tempColor;
+
+	// Swap bHSL & fHSL
+	var tempHSL = bHSL;
+	bHSL = fHSL;
+	fHSL = tempHSL;
+
+	// Swap initFg & initBg
+	var tempInit = initBg;
+	initBg = initFg;
+	initFg = tempInit;
 }
 
 // When you press undo on BG, reset the BG to the original color.
@@ -176,5 +216,8 @@ document.body.addEventListener("keydown", e => {
 document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("js-swap").addEventListener("click", () => {
 		swapHTML();
+		swapIds();
+		swapVars();
+		apply();
 	});
 });
