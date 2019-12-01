@@ -125,7 +125,7 @@ html {
 }
 
 .col-right {
-	margin-left: 45px;	
+	margin-left: 36px;	
 }
 
 .tool {
@@ -134,11 +134,12 @@ html {
 
 /* TOP CHUNK */
 .color-settings {
-	display: flex;
-	margin-left: 30px;
-	margin-top: 20px;
-	margin-right: 30px;
-	padding-bottom: 20px;
+	display: inline-flex;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-bottom: 20px;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
 .color-input {
@@ -156,10 +157,6 @@ html {
 	text-transform: uppercase;
 	letter-spacing: -0.08px;
 	text-align: center;
-}
-
-.color-input::first-letter {
-	color: #AAAAAA;
 }
 
 .input-wrapper {
@@ -204,6 +201,19 @@ input[type='range']::webkit-slider-thumb:hover {
     box-shadow: 0px 0px 1px 0px rgba(0,0,0,.5);
   }
 
+
+  .reverse {
+	cursor: pointer;
+	margin-bottom: 8px;
+    margin-left: 10px;
+	margin-right: 10px;
+	transition: 0.2s ease-in-out;
+  }
+
+  .reverse:hover {
+	  opacity: 0.7;
+	  transition: 0.2s ease-in-out;
+  }
 
   /* CTAs */
   .cta {
