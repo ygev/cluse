@@ -9,12 +9,9 @@ function setSketchData(bg, fg, isLrg) {
 	bColor = bg.substring(0,7);
 	bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
 	initBgLightness = bHSL[2];
-	update();
 	initFg = fg;
 	initBg = bg;
 
-	document.getElementById("normal").style.backgroundColor = bg;
-	document.getElementById("normal").style.color = fg;
 	// Set value of inputs to the correct color hex value
 	document.getElementById("fHex").value = fg.substring(0,7);
 	document.getElementById("bHex").value = bg.substring(0,7);
@@ -24,6 +21,8 @@ function setSketchData(bg, fg, isLrg) {
 	} else {
 		document.getElementById("js-txtSize").innerHTML = "Normal Text";
 	}
+
+	update();
 }
 
 // Apply slider hexes to the canvas.
@@ -38,14 +37,20 @@ function apply(){
 	);
 };
 
-// function resetButtonState() {
-// 	console.log("fg is" + fg);
-// 	console.log("initFg is" + initFg);
-	//  Reset Button Appears if you change the value.
-	// if (fg != initFg) {
-	// 	document.getElementById("js-reset-fg").style.display = "block";
-	// }
-// }
+// Reset button appears if you change the value.
+function resetButtonState() {
+	if (fColor != initFg.substring(0,7)) {
+		document.getElementById("js-reset-fg").style.display = "block";
+	} else {
+		document.getElementById("js-reset-fg").style.display = "none";
+	}
+
+	if (bColor != initBg.substring(0,7)) {
+		document.getElementById("js-reset-bg").style.display = "block";
+	} else {
+		document.getElementById("js-reset-bg").style.display = "none";
+	}
+}
 
 // Reset BG to Original
 function resetBg() {
@@ -61,6 +66,8 @@ function resetBg() {
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
 			JSON.stringify(messageCancel)
 	);
+
+	resetButtonState();
 }
 
 // Reset FG to Original
@@ -77,6 +84,8 @@ function resetFg() {
 	window.webkit.messageHandlers.sketchPlugin.postMessage(
 			JSON.stringify(messageCancel)
 	);
+
+	resetButtonState();
 }
 
 
