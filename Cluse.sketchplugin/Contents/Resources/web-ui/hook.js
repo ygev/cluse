@@ -28,13 +28,11 @@ function setSketchData(bg, fg, isLrg) {
 // Apply slider hexes to the canvas.
 function apply() {
 	var message = {
-		"background": document.getElementById("bHex").value,
-		"foreground": document.getElementById("fHex").value
+		background: document.getElementById("bHex").value,
+		foreground: document.getElementById("fHex").value
 	};
 
-	window.webkit.messageHandlers.sketchPlugin.postMessage(
-			JSON.stringify(message)
-	);
+	postMessage(JSON.stringify(message));
 };
 
 // Reset button appears if you change the value.
@@ -59,14 +57,11 @@ function resetBg() {
 	document.getElementById("bHex").value = initBg.substring(0,7);
 	document.getElementById("bColorLightness").value = initBgLightness;
 
-	var messageCancel = {
-		"background": initBg,
+	var message = {
+		background: initBg,
 	};
 
-	window.webkit.messageHandlers.sketchPlugin.postMessage(
-			JSON.stringify(messageCancel)
-	);
-
+	postMessage(JSON.stringify(message));
 	resetButtonState();
 	checkContrast();
 }
@@ -78,14 +73,11 @@ function resetFg() {
 	document.getElementById("fHex").value = initFg.substring(0,7);
 	document.getElementById("fColorLightness").value = initFgLightness;
 
-	var messageCancel = {
-		"foreground": initFg,
+	var message = {
+		foreground: initFg,
 	};
 
-	window.webkit.messageHandlers.sketchPlugin.postMessage(
-			JSON.stringify(messageCancel)
-	);
-
+	postMessage(JSON.stringify(message));
 	resetButtonState();
 	checkContrast();
 }
@@ -105,9 +97,7 @@ function resetToInitial() {
 		cancel: true
 	};
 
-	window.webkit.messageHandlers.sketchPlugin.postMessage(
-			JSON.stringify(messageCancel)
-	);
+	postMessage(JSON.stringify(messageCancel));
 }
 
 // Close the Window
@@ -116,9 +106,11 @@ function closeWindow() {
 		close: true
 	};
 
-	window.webkit.messageHandlers.sketchPlugin.postMessage(
-		JSON.stringify(messageCancel)
-	);
+	postMessage(JSON.stringify(messageCancel));
+}
+
+function postMessage(messageString) {
+	window.webkit.messageHandlers.sketchPlugin.postMessage(messageString);
 }
 
 // Swap HTML between Foreground slider and Background slider 
