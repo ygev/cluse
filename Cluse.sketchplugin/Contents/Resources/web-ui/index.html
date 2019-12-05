@@ -9,17 +9,17 @@
 			<img src="img/logo.svg" alt="" class="logo">
 			<div class="title">
 				<h1 class="title-tab">Check Color Contrast</h1>
-				<h2 class="subtitle-tab">Ensure your text color contrast passes WCAG.</h2>
+				<!-- <h2 class="subtitle-tab">Ensure your text color contrast passes WCAG.</h2> -->
 			</div>	
 		</header>
 
 		<section class="bottom-chunk">
-			<form id ="contrastForm" class="color-settings" style="flex-direction: row;">
+			<form id ="contrastForm" class="color-settings" style="flex-direction: column;">
 				<fieldset class="col-left color-background">
 					<h3 id="bTitle" class="title-tool">Background Color</h3>
 					<div class="input-wrapper">
 						<input id="bHex" maxlength="7" class="color-input" type="text" name="head" value="#006CF4">
-						<button id="js-reset-bg" class="btn-reset" style="display: none;"></button>
+						<div id="js-reset-bg" class="btn-reset" style="display: none;"></div>
 					</div>
 					<div class="color-slider">
 						<input id="bColorLightness" class="slider-input hex-value" type="range" min="0" value="50" max="100" step="1">
@@ -30,7 +30,7 @@
 					<h3 id="fTitle" class="title-tool">Foreground Color</h3>
 					<div class="input-wrapper">
 						<input id="fHex" maxlength="7" required class="color-input" value="#FFFFFF" type="text" name="head">
-						<button id="js-reset-fg" class="btn-reset" style="display: none;"></button>
+						<div id="js-reset-fg" class="btn-reset" style="display: none;"></div>
 					</div>
 					<div class="color-slider">
 						<input id="fColorLightness" class="slider-input hex-value" type="range" min="0" value="50" max="100" step="1">
@@ -44,7 +44,6 @@
 				<div class="section_wcag-status tool">
 					<h3 class="title-tool">WCAG Compliance Status</h3>
 					<div class="wcag-wrapper">
-						<div class="wcag-levels">
 							<div class="wcag-value aa">
 								<img id="AA" src="img/no.svg" alt="" class="img-status">
 								<p class="title-return wcag-level">AA</p>
@@ -53,18 +52,17 @@
 								<img id="AAA" src="img/no.svg" alt="" class="img-status">
 								<p class="title-return wcag-level">AAA</p>	
 							</div>
-						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-right">
 					<div class="section_text-class tool">
-							<h3 class="title-tool">Text Classification</h3>
-							<p id="js-txtSize" class="title-return">Large Text</p>
+							<h3 class="title-tool">Text Size</h3>
+							<p id="js-txtSize" class="title-return txt-result">Large Text</p>
 					</div>
-					<div class="section_text-class tool">
+					<div class="section_text-class contrast-ratio tool">
 							<h3 class="title-tool">Contrast Ratio</h3>
-							<p id="ratio" class="title-return">8.5:1</p>
+							<p id="ratio" class="title-return txt-result">8.5:1</p>
 					</div>
 			</div>
 		</section>

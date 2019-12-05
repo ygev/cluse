@@ -1,6 +1,6 @@
 // Set initial values.
 var initFg, initBg, initFgLightness, initBgLightness, swapped = false;
-
+setSketchData('#006CF4ff', '#FFFFFFff', false);
 // Get values from Sketch.
 function setSketchData(bg, fg, isLrg) {
 	fColor = fg.substring(0,7);
@@ -32,7 +32,7 @@ function apply() {
 		foreground: document.getElementById("fHex").value
 	};
 
-	postMessage(JSON.stringify(message));
+	// postMessage(JSON.stringify(message));
 };
 
 // Reset button appears if you change the value.
@@ -115,13 +115,13 @@ function postMessage(messageString) {
 
 // Swap HTML between Foreground slider and Background slider 
 function swapHTML() {
-	// Swap titles and make flex into row-reverse.
-	if (document.getElementById("contrastForm").style.flexDirection == "row") {
-		document.getElementById("contrastForm").style.flexDirection = "row-reverse";
+	// Swap titles and make flex into column-reverse.
+	if (document.getElementById("contrastForm").style.flexDirection == "column") {
+		document.getElementById("contrastForm").style.flexDirection = "column-reverse";
 		document.getElementById("bTitle").innerHTML = "Foreground Color";
 		document.getElementById("fTitle").innerHTML = "Background Color";
 	} else {
-		document.getElementById("contrastForm").style.flexDirection = "row";
+		document.getElementById("contrastForm").style.flexDirection = "column";
 		document.getElementById("fTitle").innerHTML = "Foreground Color";
 		document.getElementById("bTitle").innerHTML = "Background Color";
 	}
