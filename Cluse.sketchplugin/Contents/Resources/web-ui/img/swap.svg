@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="11px" viewBox="0 0 16 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+<svg width="9px" height="13px" viewBox="0 0 9 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
     <title>Fill 1</title>
     <desc>Created with Sketch.</desc>
     <g id="Mocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flow-2-Copy-6" transform="translate(-1046.000000, -297.000000)" fill="#707070">
-            <path d="M1058.37182,297 L1058.37182,299.25075 L1052,299.25075 L1052,300.75 L1058.37182,300.75 L1058.37182,303 L1062,300.00075 L1058.37182,297 Z M1046,305.00075 L1049.6276,308 L1049.6276,305.75075 L1056,305.75075 L1056,304.25 L1049.6276,304.25 L1049.6276,302 L1046,305.00075 Z" id="Fill-1"></path>
+        <g id="Cluse_Vertical1-Copy-5" transform="translate(-93.000000, -145.000000)" fill="#7F7F7F">
+            <path d="M101.052102,147 L101.052102,148.841523 L95.875,148.841523 L95.875,150.068182 L101.052102,150.068182 L101.052102,151.909091 L104,149.455159 L101.052102,147 Z M91,153.546068 L93.947427,156 L93.947427,154.159705 L99.125,154.159705 L99.125,152.931818 L93.947427,152.931818 L93.947427,151.090909 L91,153.546068 Z" id="Fill-1" transform="translate(97.500000, 151.500000) rotate(-90.000000) translate(-97.500000, -151.500000) "></path>
         </g>
     </g>
 </svg>

@@ -118,10 +118,24 @@ function swapHTML() {
 	// Swap titles and make flex into column-reverse.
 	if (document.getElementById("contrastForm").style.flexDirection == "column") {
 		document.getElementById("contrastForm").style.flexDirection = "column-reverse";
+		document.getElementsByClassName("color-background")[0].style.borderTop = "1px #d7d7d7 solid";
+		document.getElementsByClassName("color-background")[0].style.marginTop = "20px";
+		document.getElementsByClassName("color-background")[0].style.paddingTop = "20px";
+		document.getElementsByClassName("col-left")[0].style.marginTop = "20px";
+		document.getElementsByClassName("col-left")[0].style.paddingTop = "20px";
+		document.getElementsByClassName("col-left")[0].style.paddingBottom = "0";
+		document.getElementsByClassName("col-left")[0].style.borderBottom = "0";
 		document.getElementById("bTitle").innerHTML = "Foreground Color";
 		document.getElementById("fTitle").innerHTML = "Background Color";
 	} else {
 		document.getElementById("contrastForm").style.flexDirection = "column";
+		document.getElementsByClassName("color-background")[0].style.borderTop = "0";
+		document.getElementsByClassName("color-background")[0].style.marginTop = "0px";
+		document.getElementsByClassName("color-background")[0].style.paddingTop = "0px";
+		document.getElementsByClassName("col-left")[0].style.marginTop = "0px";
+		document.getElementsByClassName("col-left")[0].style.paddingTop = "20px";
+		document.getElementsByClassName("col-left")[0].style.paddingBottom = "20px";
+		document.getElementsByClassName("col-left")[0].style.borderBottom = "1px #d7d7d7 solid";
 		document.getElementById("fTitle").innerHTML = "Foreground Color";
 		document.getElementById("bTitle").innerHTML = "Background Color";
 	}

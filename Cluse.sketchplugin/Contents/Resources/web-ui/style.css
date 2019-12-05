@@ -233,7 +233,8 @@ input[type='range']::webkit-slider-thumb:hover {
   .swap {
 	position: absolute;
 	left: 47%;
-	top: 15.75%;
+	top: 16.25%;
+	width: 10px;
 	background-color: #fff;
 	transition: 0.2s ease-in-out;
   }
