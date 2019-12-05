@@ -121,6 +121,7 @@ function swapHTML() {
 		document.getElementsByClassName("color-background")[0].style.borderTop = "1px #d7d7d7 solid";
 		document.getElementsByClassName("color-background")[0].style.marginTop = "20px";
 		document.getElementsByClassName("color-background")[0].style.paddingTop = "20px";
+		document.getElementsByClassName("color-foreground")[0].style.borderTop = "0px #d7d7d7 solid";
 		document.getElementsByClassName("col-left")[0].style.marginTop = "20px";
 		document.getElementsByClassName("col-left")[0].style.paddingTop = "20px";
 		document.getElementsByClassName("col-left")[0].style.paddingBottom = "0";
@@ -132,10 +133,11 @@ function swapHTML() {
 		document.getElementsByClassName("color-background")[0].style.borderTop = "0";
 		document.getElementsByClassName("color-background")[0].style.marginTop = "0px";
 		document.getElementsByClassName("color-background")[0].style.paddingTop = "0px";
+		document.getElementsByClassName("color-foreground")[0].style.borderTop = "1px #d7d7d7 solid";
 		document.getElementsByClassName("col-left")[0].style.marginTop = "0px";
 		document.getElementsByClassName("col-left")[0].style.paddingTop = "20px";
 		document.getElementsByClassName("col-left")[0].style.paddingBottom = "20px";
-		document.getElementsByClassName("col-left")[0].style.borderBottom = "1px #d7d7d7 solid";
+		document.getElementsByClassName("col-left")[0].style.borderBottom = "0px #d7d7d7 solid";
 		document.getElementById("fTitle").innerHTML = "Foreground Color";
 		document.getElementById("bTitle").innerHTML = "Background Color";
 	}
@@ -154,6 +156,12 @@ function swapIds() {
 		secondHex = document.getElementById("bHex");
 	firstHex.id = "bHex";
 	secondHex.id ="fHex";
+
+	// Swap bHex & fHex
+	var firstCircle = document.getElementById("fCircle"),
+		secondCircle = document.getElementById("bCircle");
+	firstCircle.id = "bCircle";
+	secondCircle.id ="fCircle";
 
 	// Swap Reset Buttons (apply() works when this is commented out)
 	var firstReset = document.getElementById("js-reset-fg"),

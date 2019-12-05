@@ -59,10 +59,12 @@ $(function() {
 function update() {
     $('#fHex, #fPick').val(fColor);
     $('#bHex, #bPick').val(bColor);
-    $('#normal, #big, #ui').css({
-        'color': fColor,
+    $('#bCircle').css({
         'background-color': bColor
-    });
+    })
+    $('#fCircle').css({
+        'background-color': fColor
+    })
 
     // Update lightness sliders
     $('#fColorLightness').val(Math.round(fHSL[2])).css('background', 'linear-gradient(to right,hsl(' + fHSL[0] + ',' + fHSL[1] + '%,0%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,50%), hsl(' + fHSL[0] + ',' + fHSL[1] + '%,100%))')
