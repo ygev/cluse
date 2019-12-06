@@ -45,7 +45,7 @@ function createWebView(pageURL, onApplyMessage, onLoadFinish){
 
 function createWindow(){
 	const window = NSPanel.alloc().initWithContentRect_styleMask_backing_defer(
-		NSMakeRect(0, 0, 440, 430),
+		NSMakeRect(0, 0, 235, 500),
 		NSWindowStyleMaskClosable | NSWindowStyleMaskTitled | NSWindowStyleMaskResizable,
 		NSBackingStoreBuffered,
 		false
@@ -55,7 +55,7 @@ function createWindow(){
 	window.floatingPanel = true;
 
 	// Increment++ first number of the frameAutosaveName value every time you change NSMakeRect!
-	window.frameAutosaveName = "6-cluse-panel-frame";
+	window.frameAutosaveName = "7-cluse-panel-frame";
 
 	window.minSize = window.frame().size;
 	window.maxSize = window.frame().size;

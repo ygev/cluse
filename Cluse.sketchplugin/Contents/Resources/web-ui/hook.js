@@ -1,6 +1,6 @@
 // Set initial values.
 var initFg, initBg, initFgLightness, initBgLightness, swapped = false;
-setSketchData('#006CF4ff', '#FFFFFFff', false);
+
 // Get values from Sketch.
 function setSketchData(bg, fg, isLrg) {
 	fColor = fg.substring(0,7);
@@ -32,7 +32,7 @@ function apply() {
 		foreground: document.getElementById("fHex").value
 	};
 
-	// postMessage(JSON.stringify(message));
+	postMessage(JSON.stringify(message));
 };
 
 // Reset button appears if you change the value.
@@ -55,7 +55,8 @@ function resetBg() {
 	bColor = initBg.substring(0,7);
 	bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
 	document.getElementById("bHex").value = initBg.substring(0,7);
-	document.getElementById("bColorLightness").value = initBgLightness;
+	document.getElementById("bColorLightness").value = initBg;
+	document.getElementById("bCircle").style.backgroundColor = initBg;
 
 	var message = {
 		background: initBg,
@@ -72,6 +73,7 @@ function resetFg() {
 	fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
 	document.getElementById("fHex").value = initFg.substring(0,7);
 	document.getElementById("fColorLightness").value = initFgLightness;
+	document.getElementById("fCircle").style.backgroundColor = initFg;
 
 	var message = {
 		foreground: initFg,
