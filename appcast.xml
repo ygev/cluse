@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>Cluse Web Accessibility Plugin</title>
+        <link>https://raw.githubusercontent.com/ygev/cluse/master/appcast.xml</link>
+        <description>A Sketch plugin to check color contrast for web accessibility based on WCAG 2.0. Fitting seamlessly into your team's workflow, Cluse allows you to remotely change your design and see the updated WCAG score live.</description>
+        <language>en</language>
+        <item>
+            <enclosure url="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip" sparkle:version="1.0"/>
+        </item>
+    </channel>
+</rss>

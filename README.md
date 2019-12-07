@@ -20,7 +20,16 @@
     </a>
   </p>
 </h1>
- 
+
+<p align='center'>
+    <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
+        <img src="Docs/downloadBadge.png" width="260" alt="Download Sketch Cluse">
+    </a>
+        <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
+        <img src="Docs/runnerBadge.svg" alt="Download Sketch Cluse on Runner Soon">
+    </a>
+</p>
+
 # 
 A Sketch plugin to check color contrast for web accessibility based on [WCAG 2.0](https://www.w3.org/TR/WCAG20/). Fitting seamlessly into your team's workflow, [Cluse](https://cluse.cc) allows you to remotely change your design and see the updated WCAG score live. 
 
@@ -45,16 +54,6 @@ A Sketch plugin to check color contrast for web accessibility based on [WCAG 2.0
 <p align="center">
   <img src="Docs/live.gif" width="500" alt="Cluse in action.">
 </p>
-
-<p align='center'>
-    <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
-        <img src="Docs/downloadBadge.png" width="260" alt="Download Sketch Cluse">
-    </a>
-        <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
-        <img src="Docs/runnerBadge.svg" alt="Download Sketch Cluse on Runner Soon">
-    </a>
-</p>
-
 
 ## License
 > Cluse is available under the GPL 3.0 license. See the LICENSE file for more info.
