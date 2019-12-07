@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="260px" height="75px" viewBox="0 0 260 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="240" height="55" rx="27.5"></rect>
+        <filter x="-7.3%" y="-22.7%" width="114.6%" height="163.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.980392157   0 0 0 0 0.68627451   0 0 0 0 0.250980392  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Demo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Button" transform="translate(10.000000, 5.000000)">
+            <g id="Rectangle">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FAAF40" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <text id="Download-Cluse" font-family="FiraSans-Medium, Fira Sans" font-size="21" font-weight="400" fill="#262626">
+                <tspan x="43.497" y="25">Download Cluse</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
