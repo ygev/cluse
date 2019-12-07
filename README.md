@@ -35,7 +35,7 @@
 </p>
  
 # 
-A Sketch plugin to check color contrast for web accessibility based on WCAG 2.0. Fitting seamless into your team's workflow, [Cluse](https://cluse.cc) allows you to remotely change your design and see the updated WCAG score live. 
+A Sketch plugin to check color contrast for web accessibility based on [WCAG 2.0](https://www.w3.org/TR/WCAG20/). Fitting seamlessly into your team's workflow, [Cluse](https://cluse.cc) allows you to remotely change your design and see the updated WCAG score live. 
 
 ## Installation
 
