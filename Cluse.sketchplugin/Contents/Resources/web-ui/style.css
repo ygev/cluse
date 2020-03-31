@@ -20,7 +20,7 @@ html {
 	width: 100%;
 	height: 100%;
 	font-family: -apple-system, sans-serif;
-	background-color: #F2F2F2;
+	background-color: #f2f2f2;
 	overflow-x: hidden;
 }
 
@@ -38,13 +38,14 @@ html {
 	width: auto;
 	border-bottom: 1px #D7D7D7 solid;
 	display: flex;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
+	background-color: #fafafa;
 }
 
 .logo {
-	width: 20px;
+	width: 25px;
 }
 
 .title {
@@ -54,9 +55,19 @@ html {
 	margin-left: 15px;
 }
 .title-tab {
-	font-family: "SFUIDisplay-Bold";
+	font-family: "SFUIDisplay-Bold";    
 	font-size: 12px;
+    letter-spacing: 0.15px;
 	color: #262626;
+}
+
+
+.subtitle-tab {
+	font-family: "SFUIDisplay-Regular";
+    font-size: 12px;
+    padding-top: 5px;
+    letter-spacing: 0.3px;
+    color: #757575;
 }
 
 /* BOTTOM CHUNK*/
