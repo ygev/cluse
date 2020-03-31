@@ -68,7 +68,7 @@ function createWindow(){
 
 	window.titlebarAppearsTransparent = true;
 
-	window.backgroundColor = NSColor.colorWithRed_green_blue_alpha(1.0, 1.0, 1.0, 1.0);
+	window.backgroundColor = NSColor.colorWithRed_green_blue_alpha(0.95, 0.95, 0.95, 0.95);
 
 	return window;
 };
