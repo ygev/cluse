@@ -8,6 +8,11 @@
 	src: url("fonts/SF-UI-Display-Medium.woff") format("woff");
 }
 
+@font-face {
+	font-family: "SFUIDisplay-Regular";
+	src: url("fonts/SF-UI-Display-Regular.woff") format("woff");
+}
+
 body,
 html {
 	padding: 0;
@@ -39,7 +44,7 @@ html {
 }
 
 .logo {
-	width: 30px;
+	width: 20px;
 }
 
 .title {
@@ -50,7 +55,7 @@ html {
 }
 .title-tab {
 	font-family: "SFUIDisplay-Bold";
-	font-size: 14px;
+	font-size: 12px;
 	color: #262626;
 }
 
@@ -67,16 +72,16 @@ html {
 }
 
 .title-tool {
-	font-family: "SFUIDisplay-Bold";
+	font-family: "SFUIDisplay-Medium";
 	font-size: 10px;
-	letter-spacing: 0.3px;
+	letter-spacing: 0.5px;
 	color: #707070;
 	text-transform: uppercase;
 }
 
 .title-return {
-	font-family: "SFUIDisplay-Medium";
-	font-size: 14px;
+	font-family: "SFUIDisplay-Regular";
+	font-size: 13px;
 	color: #000000;
 	letter-spacing: -0.08px;
 }
@@ -249,7 +254,6 @@ input[type='range']::webkit-slider-thumb:hover {
       height: 24px;
       background: #FFFFFF;
       border: 1px solid #C4C4C4;
-      /* box-shadow: 0 2px 2px 0 rgba(0,0,0,0.10); */
       border-radius: 5px;
       font-size: 13px;
       transition: 0.2s ease-in-out;
@@ -290,7 +294,6 @@ input[type='range']::webkit-slider-thumb:hover {
   .button-primary {
       color: white;
 	  background-color: #0A7FFF;
-      border: 1px solid rgba(0, 93, 254, 0.342);
       border-radius: 5px;
   }
 
