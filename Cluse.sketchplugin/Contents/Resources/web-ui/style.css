@@ -249,7 +249,7 @@ input[type='range']::webkit-slider-thumb:hover {
       height: 24px;
       background: #FFFFFF;
       border: 1px solid #C4C4C4;
-      box-shadow: 0 2px 2px 0 rgba(0,0,0,0.10);
+      /* box-shadow: 0 2px 2px 0 rgba(0,0,0,0.10); */
       border-radius: 5px;
       font-size: 13px;
       transition: 0.2s ease-in-out;
@@ -277,22 +277,26 @@ input[type='range']::webkit-slider-thumb:hover {
   }
 
   button:hover {
-    box-shadow: 0 3px 6px 0 rgba(10,127,255,0.30);
-    transition: 0.2s ease-in-out;
+	cursor: pointer;
+	background-color: rgb(224, 224, 224);
+    transition: 150ms ease-in-out;
   }
 
   .btn:active {
-    box-shadow: inset 0px 0px 5px rgba(0,0,0,0.20);
-    transition: 0.2s ease-in-out;
+    transition: 150ms ease-in-out;
     color: #C4C4C4;
   }
   
   .button-primary {
       color: white;
-      background-image: linear-gradient(180deg, #5FACFB 0%, #0A7FFF 100%);
-      border: 1px solid #005CFE;
-      box-shadow: 0 2px 2px 0 rgba(10,127,255,0.10);
+	  background-color: #0A7FFF;
+      border: 1px solid rgba(0, 93, 254, 0.342);
       border-radius: 5px;
+  }
+
+  .button-primary:hover {
+	background-color: rgb(24, 97, 255);
+    transition: 150ms ease-in-out;
   }
 
   .button-primary:active {
