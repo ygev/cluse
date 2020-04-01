@@ -54,5 +54,5 @@ A Sketch plugin to check color contrast for web accessibility based on [WCAG 2.0
   <img src="Docs/live.gif" width="500" alt="Cluse in action.">
 </p>
 
-## License
-> Cluse is available under the GPL 3.0 license. See the LICENSE file for more info.
+<hr>
+<sup><sub>Cluse is available under the GPL 3.0 license. See the LICENSE file for more info.</sub></sup>
