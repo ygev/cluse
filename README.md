@@ -2,9 +2,6 @@
   <img align="center" src="Docs/SketchCluseIcon.svg" width="125" alt="icon">
 <br>
   <h1 align="center">Cluse</h1>
-  <p align="center"> 
- Sketch Plugin for Web Accessibility
-    </p>
   <p align="center">
     <a href="mailto:ygis@mit.edu">
       <img src="https://img.shields.io/badge/Cluse-v1.0-green.svg?style=flat" alt="Contact">
