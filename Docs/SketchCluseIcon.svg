@@ -4,9 +4,9 @@
     <title>Group 4</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <linearGradient x1="76.981972%" y1="8.83196267%" x2="17.5290842%" y2="88.9062651%" id="linearGradient-1">
-            <stop stop-color="#44B6FF" offset="0%"></stop>
-            <stop stop-color="#0A7FFF" offset="100%"></stop>
+        <linearGradient x1="50%" y1="50%" x2="24.6015221%" y2="87.8526405%" id="linearGradient-1">
+            <stop stop-color="#007AFF" offset="0%"></stop>
+            <stop stop-color="#005EED" offset="100%"></stop>
         </linearGradient>
         <circle id="path-2" cx="145.5" cy="145.5" r="145.5"></circle>
         <filter x="-5.5%" y="-4.8%" width="111.0%" height="111.0%" filterUnits="objectBoundingBox" id="filter-3">
