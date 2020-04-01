@@ -1,7 +1,7 @@
 <h1 align="center">
   <img align="center" src="Docs/SketchCluseIcon.svg" width="125" alt="icon">
 <br>
-  <h1 align="center"> Sketch Cluse</h1>
+  <h1 align="center">Cluse</h1>
   <p align="center"> 
  Sketch Plugin for Web Accessibility
     </p>
@@ -25,8 +25,11 @@
     <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
         <img src="Docs/downloadBadge.png" width="260" alt="Download Sketch Cluse">
     </a>
-        <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
-        <img src="Docs/runnerBadge.svg" alt="Download Sketch Cluse on Runner Soon">
+    <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
+        <img src="Docs/runnerBadge.svg" alt="Install Sketch Cluse on Runner">
+    </a>
+    <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
+        <img src="Docs/sketchpacksBadge.svg" alt="Install Sketch Cluse on Sketchpacks">
     </a>
 </p>
 
@@ -39,10 +42,6 @@ A Sketch plugin to check color contrast for web accessibility based on [WCAG 2.0
 
 1.  Download the [latest release](https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip)
 2.  Open `Cluse.sketchplugin`
-
-```diff
-+ Compatibility with Sketchpacks and Runner coming soon!
-```
 
 ## Usage
   
