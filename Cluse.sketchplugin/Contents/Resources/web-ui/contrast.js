@@ -95,9 +95,6 @@ function checkContrast() {
     var L1 = getLWithAlpha(fColor, bColor, fAlphaDec),
         L2 = getL(bColor),
         ratio = (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
-    //console.log('L1 (fore): ' + L1)
-    //console.log('L2 (back): ' + L2)
-    // Dec2() truncates the number to 2 decimal places without rounding.
     $('#ratio').html('<b>' + Dec2((ratio * 100) / 100) + '</b>:1');
 
     if (document.getElementById("js-txtSize").innerHTML == "Normal Text") {
