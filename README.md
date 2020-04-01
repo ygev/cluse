@@ -1,7 +1,7 @@
 <h1 align="center">
   <img align="center" src="Docs/SketchCluseIcon.svg" width="125" alt="icon">
 <br>
-  <h1 align="center"> Sketch Cluse</h1>
+  <h1 align="center">Cluse</h1>
   <p align="center"> 
  Sketch Plugin for Web Accessibility
     </p>
