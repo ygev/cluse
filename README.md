@@ -13,7 +13,7 @@
       <img src="https://img.shields.io/badge/Sketch-v63-orange.svg?style=flat" alt="Contact">
     </a>
 <a href="mailto:ygis@mit.edu">
-      <img src="https://img.shields.io/badge/Contact-Yana Gevorgyan-blue.svg?style=flat" alt="Contact">
+      <img src="https://img.shields.io/badge/Contact-ygev-blue.svg?style=flat" alt="Contact">
     </a>
     <a href="https://opensource.org/licenses/GPL-3.0">
       <img src="https://img.shields.io/badge/License-GPL 3.0-yellow.svg" alt="License: GPL 3.0">
