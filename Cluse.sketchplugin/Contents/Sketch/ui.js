@@ -17,7 +17,7 @@ function createWebView(pageURL, onApplyMessage, onLoadFinish){
 
 			try {
 					const message = JSON.parse(wkMessage.body());
-					
+
 					if (message.close == true) {
 						console.log("closing window");
 						_window.close();

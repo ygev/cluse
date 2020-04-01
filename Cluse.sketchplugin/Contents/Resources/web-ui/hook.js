@@ -1,20 +1,36 @@
 // Set initial values.
-var initFg, initBg, initFgLightness, initBgLightness, swapped = false;
+var initFg, initBg, initFAlpha, initBAlpha, initFgLightness, initBgLightness, swapped = false;
 
 // Get values from Sketch.
 function setSketchData(bg, fg, isLrg) {
 	fColor = fg.substring(0,7);
+    fAlphaHex = fg.substring(7,9);
 	fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
 	initFgLightness = fHSL[2];
 	bColor = bg.substring(0,7);
+    bAlphaHex = bg.substring(7,9);
 	bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
 	initBgLightness = bHSL[2];
 	initFg = fg;
 	initBg = bg;
+    initFAlpha = fAlphaHex;
+    initBAlpha = bAlphaHex;
+
+    fAlphaDec = parseInt(initFAlpha, 16) / 255;
+    fAlphaPercentage = Math.round(fAlphaDec * 100);
+    console.log('fAlphaHex: ' + fAlphaHex)
+    console.log('fAlphaDec: ' + fAlphaDec)
+    console.log('fAlphaPercentage: ' + fAlphaPercentage)
 
 	// Set value of inputs to the correct color hex value
 	document.getElementById("fHex").value = fg.substring(0,7);
 	document.getElementById("bHex").value = bg.substring(0,7);
+    document.getElementById("fAlpha").value = fAlphaPercentage + "%";
+    if (fAlphaPercentage == "100") {
+        document.getElementById('fAlpha').style = "display: none;"
+    } else {
+        document.getElementById('fAlpha').style = "display: initial;"
+    }
 
 	if (isLrg) {
 		document.getElementById("js-txtSize").innerHTML = "Large Text";
@@ -28,8 +44,8 @@ function setSketchData(bg, fg, isLrg) {
 // Apply slider hexes to the canvas.
 function apply() {
 	var message = {
-		background: document.getElementById("bHex").value,
-		foreground: document.getElementById("fHex").value
+		background: document.getElementById("bHex").value + initBAlpha,
+		foreground: document.getElementById("fHex").value + initFAlpha
 	};
 
 	postMessage(JSON.stringify(message));
@@ -63,8 +79,8 @@ function resetBg() {
 	};
 
 	postMessage(JSON.stringify(message));
-	resetButtonState();
 	checkContrast();
+	resetButtonState();
 }
 
 // Reset FG to Original
@@ -80,8 +96,8 @@ function resetFg() {
 	};
 
 	postMessage(JSON.stringify(message));
-	resetButtonState();
 	checkContrast();
+	resetButtonState();
 }
 
 
@@ -112,10 +128,11 @@ function closeWindow() {
 }
 
 function postMessage(messageString) {
-	window.webkit.messageHandlers.sketchPlugin.postMessage(messageString);
+    console.log('postMessage: ' + messageString)
+    window.webkit.messageHandlers.sketchPlugin.postMessage(messageString);
 }
 
-// Swap HTML between Foreground slider and Background slider 
+// Swap HTML between Foreground slider and Background slider
 function swapHTML() {
 	// Swap titles and make flex into column-reverse.
 	if (document.getElementById("contrastForm").style.flexDirection == "column") {
@@ -152,7 +169,7 @@ function swapIds() {
 		secondColorLightness = document.getElementById("bColorLightness");
 	firstColorLightness.id = "bColorLightness";
 	secondColorLightness.id ="fColorLightness";
-	
+
 	// Swap bHex & fHex
 	var firstHex = document.getElementById("fHex"),
 		secondHex = document.getElementById("bHex");

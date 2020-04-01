@@ -6,11 +6,10 @@ var Settings = require('sketch/settings');
 
 var initBgSketch, initFgSketch;
 
-
 function onLoad(webView) {
     if (layerChecker()) {
         var doc = sketch.getSelectedDocument();
-        var selection = doc.selectedLayers;       
+        var selection = doc.selectedLayers;
         var bgSketch = selection.layers[0].style.fills[0].color;
         var fgSketch = selection.layers[1].style.textColor;
         initBgSketch = bgSketch;
@@ -79,7 +78,7 @@ function findTxtSize(){
 function layerChecker() {
     console.error("Entering layerChecker()");
     var doc = sketch.getSelectedDocument();
-    var selection = doc.selectedLayers;    
+    var selection = doc.selectedLayers;
     const selectedLayer = doc.selectedLayers.layers[0];
 
     if(!selectedLayer){ // if user selected no layers, display error.
@@ -95,4 +94,4 @@ function layerChecker() {
     return true;
 }
 
-module.exports = { onApply, onLoad};    
+module.exports = { onApply, onLoad };

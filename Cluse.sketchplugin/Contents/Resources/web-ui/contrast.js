@@ -1,4 +1,4 @@
-var fColor = '#FFFFFF', bColor = '#006CF4', fHSL = [0, 0, 100], bHSL = [213, 100, 47.8];
+var fColor = '#FFFFFF', bColor = '#006CF4', fHSL = [0, 0, 100], bHSL = [213, 100, 47.8], fAlphaDec = 1.0;
 
 $(function() {
 
@@ -92,12 +92,13 @@ function changeHue(context) {
 }
 
 function checkContrast() {
-    var L1 = getL(fColor),
+    var L1 = getLWithAlpha(fColor, bColor, fAlphaDec),
         L2 = getL(bColor),
         ratio = (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
+    //console.log('L1 (fore): ' + L1)
+    //console.log('L2 (back): ' + L2)
     // Dec2() truncates the number to 2 decimal places without rounding.
     $('#ratio').html('<b>' + Dec2((ratio * 100) / 100) + '</b>:1');
-    //$('#ratio').html('<b>' + (Math.round(ratio * 100) / 100).toFixed(2) + '</b>:1');
 
     if (document.getElementById("js-txtSize").innerHTML == "Normal Text") {
         if (ratio >= 7) {
@@ -137,6 +138,7 @@ function checkContrast() {
 }
 
 function getRGB(c) {
+    // parse c as hex number
     try {
         var c = parseInt(c, 16);
     } catch (err) {
@@ -228,7 +230,31 @@ function getsRGB(c) {
 }
 
 function getL(c) {
-    return (0.2126 * getsRGB(c.substr(1, 2)) + 0.7152 * getsRGB(c.substr(3, 2)) + 0.0722 * getsRGB(c.substr(-2)));
+    r = getsRGB(c.substr(1, 2))
+    g = getsRGB(c.substr(3, 2))
+    b = getsRGB(c.substr(-2))
+
+    return (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+}
+
+function getLWithAlpha(foreground_c, background_c, alpha) {
+    foreground_r = getsRGB(foreground_c.substr(1, 2))
+    foreground_g = getsRGB(foreground_c.substr(3, 2))
+    foreground_b = getsRGB(foreground_c.substr(-2))
+
+    background_r = getsRGB(background_c.substr(1, 2))
+    background_g = getsRGB(background_c.substr(3, 2))
+    background_b = getsRGB(background_c.substr(-2))
+
+    // now, use the alpha to combine foreground+background...
+    r = (alpha * foreground_r) + ((1 - alpha) * background_r)
+    g = (alpha * foreground_g) + ((1 - alpha) * background_g)
+    b = (alpha * foreground_b) + ((1 - alpha) * background_b)
+    //r = ((1-alpha) * foreground_r) + (alpha * background_r)
+    //g = ((1-alpha) * foreground_g) + (alpha * background_g)
+    //b = ((1-alpha) * foreground_b) + (alpha * background_b)
+
+    return (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
 }
 
 function Dec2(num) {
