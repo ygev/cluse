@@ -113,7 +113,7 @@ function checkContrast() {
             // normal-size AA fail
             $('#AA').attr("src","img/no.svg");
         }
-    } else if (document.getElementById("js-txtSize").innerHTML == "Large Text") {
+    } else {
         if (ratio >= 3) {
             // big AA pass
             $('#AA').attr("src","img/yes.svg");
@@ -129,8 +129,6 @@ function checkContrast() {
             // big AAA fail
             $('#AAA').attr("src","img/no.svg");
         }
-    } else {
-        console.error("#js-txtSize value is neither normal nor large text");
     }
 }
 

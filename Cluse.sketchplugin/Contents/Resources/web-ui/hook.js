@@ -2,7 +2,7 @@
 var initFg, initBg, initFAlpha, initBAlpha, initFgLightness, initBgLightness, swapped = false;
 
 // Get values from Sketch.
-function setSketchData(bg, fg, isLrg) {
+function setSketchData(bg, fg, txtSize) {
 	fColor = fg.substring(0,7);
     fAlphaHex = fg.substring(7,9);
 	fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
@@ -25,17 +25,24 @@ function setSketchData(bg, fg, isLrg) {
 	// Set value of inputs to the correct color hex value
 	document.getElementById("fHex").value = fg.substring(0,7);
 	document.getElementById("bHex").value = bg.substring(0,7);
-    document.getElementById("fAlpha").value = fAlphaPercentage + "%";
-    if (fAlphaPercentage == "100") {
-        document.getElementById('fAlpha').style = "display: none;"
-    } else {
-        document.getElementById('fAlpha').style = "display: initial;"
-    }
+    // document.getElementById("fAlpha").value = fAlphaPercentage + "%";
+    // if (fAlphaPercentage == "100") {
+    //     document.getElementById('fAlpha').style = "display: none";
+    // } else {
+    //     document.getElementById('fAlpha').style = "display: initial";
+    // }
 
-	if (isLrg) {
+	if (txtSize == "large") {
 		document.getElementById("js-txtSize").innerHTML = "Large Text";
-	} else {
+		document.getElementsByClassName("text-size")[0].style = "display: intiial";
+		document.getElementsByClassName("aaa")[0].style= "display: flex";
+	} else if (txtSize == "normal") {
 		document.getElementById("js-txtSize").innerHTML = "Normal Text";
+		document.getElementsByClassName("text-size")[0].style = "display: initial";
+		document.getElementsByClassName("aaa")[0].style= "display: flex";
+	} else {
+		document.getElementsByClassName("text-size")[0].style = "display: none";
+		document.getElementsByClassName("aaa")[0].style= "display: none";
 	}
 
 	update();

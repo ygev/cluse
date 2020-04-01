@@ -11,16 +11,23 @@ function onLoad(webView) {
         var doc = sketch.getSelectedDocument();
         var selection = doc.selectedLayers;
         var bgSketch = selection.layers[0].style.fills[0].color;
-        var fgSketch = selection.layers[1].style.textColor;
+        var fgSketch;
+        var txtSize;
+        
+        if (selection.layers[1].text == undefined) {
+            // top layer is a shape
+            fgSketch = selection.layers[1].style.fills[0].color;
+            txtSize = "none";
+        }
+        else {
+            // top layer is text
+            fgSketch = selection.layers[1].style.textColor;
+            txtSize = findTxtSize();
+        }
         initBgSketch = bgSketch;
         initFgSketch = fgSketch;
-        console.log("selected #: " + selection.length);
-        console.log("layer 0: " + bgSketch);
-        console.log("layer 1: " + fgSketch);
-        var isLrgSketch = findTxtSize();
 
-        console.log("calling " + `setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`);
-        webView.evaluateJavaScript_completionHandler(`setSketchData('${bgSketch}', '${fgSketch}', ${isLrgSketch})`, null);
+        webView.evaluateJavaScript_completionHandler(`setSketchData('${bgSketch}', '${fgSketch}', '${txtSize}')`, null);
 
         return true;
     } else {
@@ -67,10 +74,10 @@ function findTxtSize(){
 
     // If font size is above 18px AND bold or above 24px and NOT bold, it is Large Text, else normal text.
     if ((txtSize >= 18 && bold == true) || txtSize >= 24) {
-       return true;
+       return "large";
     }
     else if (txtSize < 18) {
-        return false;
+        return "normal";
     }
 }
 
