@@ -165,10 +165,28 @@ html {
 	border-radius: 5px;
 	padding-top: 4px;
 	padding-bottom: 4px;
+	margin-right: 8px;
 	/* Input Font */
 	font-family: "SFUIDisplay-Medium";
 	font-size: 12px;
 	color: #252525;
+	text-transform: uppercase;
+	letter-spacing: -0.08px;
+	text-align: center;
+}
+
+.opacity-input {
+	width: 40px;
+	background: #fff;
+	border: 1px solid #D4D4D4;
+	border-radius: 5px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	margin-right: 8px;
+	/* Input Font */
+	font-family: "SFUIDisplay-Medium";
+	font-size: 12px;
+	color: #aaa;
 	text-transform: uppercase;
 	letter-spacing: -0.08px;
 	text-align: center;
