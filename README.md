@@ -4,10 +4,10 @@
   <h1 align="center">Cluse</h1>
   <p align="center">
     <a href="mailto:ygis@mit.edu">
-      <img src="https://img.shields.io/badge/Cluse-v1.0-green.svg?style=flat" alt="Contact">
+      <img src="https://img.shields.io/badge/Cluse-v1.1.0-green.svg?style=flat" alt="Contact">
     </a>
     <a href="mailto:ygis@mit.edu">
-      <img src="https://img.shields.io/badge/Sketch-v63-orange.svg?style=flat" alt="Contact">
+      <img src="https://img.shields.io/badge/Sketch-v64-orange.svg?style=flat" alt="Contact">
     </a>
 <a href="mailto:ygis@mit.edu">
       <img src="https://img.shields.io/badge/Contact-ygev-blue.svg?style=flat" alt="Contact">
@@ -19,13 +19,13 @@
 </h1>
 
 <p align='center'>
-    <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
+    <a href="https://github.com/ygev/cluse/releases/download/v1.1.0/Cluse.sketchplugin.zip">
         <img src="Docs/downloadBadge.png" width="260" alt="Download Sketch Cluse">
     </a>
-    <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
+    <a href="https://github.com/ygev/cluse/releases/download/v1.1.0/Cluse.sketchplugin.zip">
         <img src="Docs/runnerBadge.svg" alt="Install Sketch Cluse on Runner">
     </a>
-    <a href="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip">
+    <a href="https://github.com/ygev/cluse/releases/download/v1.1.0/Cluse.sketchplugin.zip">
         <img src="Docs/sketchpacksBadge.svg" alt="Install Sketch Cluse on Sketchpacks">
     </a>
 </p>
@@ -37,7 +37,7 @@ A Sketch plugin to check color contrast for web accessibility based on [WCAG 2.0
 
 ### Manually
 
-1.  Download the [latest release](https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip)
+1.  Download the [latest release](https://github.com/ygev/cluse/releases/download/v1.1.0/Cluse.sketchplugin.zip)
 2.  Open `Cluse.sketchplugin`
 
 ## Usage
