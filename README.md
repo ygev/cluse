@@ -48,7 +48,6 @@ A Sketch plugin to check color contrast for web accessibility based on [WCAG 2.0
 
 
 <p align="center">
-  <img src="Docs/live.gif" width="500" alt="Cluse in action.">
 </p>
 
 <hr>
