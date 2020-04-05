@@ -37,7 +37,7 @@ A Sketch plugin to check color contrast for web accessibility based on [WCAG 2.0
 
 ### Manually
 
-1.  Download the [latest release](https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip)
+1.  Download the [latest release](https://github.com/ygev/cluse/releases/download/v1.1.0/Cluse.sketchplugin.zip)
 2.  Open `Cluse.sketchplugin`
 
 ## Usage
