@@ -1,7 +1,10 @@
 <h1 align="center">
   <img align="center" src="Docs/SketchCluseIcon.svg" width="125" alt="icon">
 <br>
-  <h1 align="center">Cluse</h1>
+  <h1 align="center">Sketch Cluse</h1>
+ <p align="center">
+  <img src="Docs/live.gif" width="500" alt="Cluse in action.">
+</p>
   <p align="center">
     <a href="mailto:ygis@mit.edu">
       <img src="https://img.shields.io/badge/Cluse-v1.1.0-green.svg?style=flat" alt="Contact">
@@ -45,11 +48,6 @@ A Sketch plugin to check color contrast for web accessibility based on [WCAG 2.0
 1.  Select two layers you want to check.
 2.  Launch `Plugins › 🔹Cluse` or press  `⌘`+ `⇧ Shift` + `C`
 3.  Adjust your colors using the sliders until you pass WCAG!
-
-
-<p align="center">
-  <img src="Docs/live.gif" width="500" alt="Cluse in action.">
-</p>
 
 <hr>
 <sup><sub>Cluse is available under the GPL 3.0 license. See the LICENSE file for more info.</sub></sup>
