@@ -5,7 +5,7 @@
 	"author": "Yana Gevorgyan",
 	"authorEmail": "ygis@mit.edu",
 
-	"identifier": "yg.is.cluse",
+	"identifier": "com.yargle.cluse",
 	"version": "1.1.0",
 
 	"disableCocoaScriptPreprocessor": true,
