@@ -1,24 +1,36 @@
 var sketch = require('sketch/dom');
 var async = require('sketch/async');
+var Artboard = require('sketch/dom').Artboard
 var DataSupplier = require('sketch/data-supplier');
 var UI = require('sketch/ui');
 var Settings = require('sketch/settings');
 
-var initBgSketch, initFgSketch;
+
+var initBgSketch, initFgSketch, bgType, txtSize;
 
 function onLoad(webView) {
     if (layerChecker()) {
         var doc = sketch.getSelectedDocument();
         var selection = doc.selectedLayers;
-        var bgSketch = selection.layers[0].style.fills[0].color;
+        var bgSketch;
         var fgSketch;
-        var txtSize;
         
+        if (selection.layers[0].style.fills.length == 0) {
+            // bottom layer is an artboard
+            bgSketch = selection.layers[1].getParentArtboard().background.color;
+            bgType = "artboard";
+        }
+        else {
+            bgSketch = selection.layers[0].style.fills[0].color;
+            bgType = "shape";
+        }
+
         if (selection.layers[1].text == undefined) {
             // top layer is a shape
             fgSketch = selection.layers[1].style.fills[0].color;
             txtSize = "none";
         }
+        
         else {
             // top layer is text
             fgSketch = selection.layers[1].style.textColor;
@@ -41,16 +53,37 @@ function onApply(options) {
     var selection = doc.selectedLayers;
 
     if (options.background != null) {
-        selection.layers[0].style.fills[0].color = options.background;
+        if (bgType == "artboard") {
+            selection.layers[1].getParentArtboard().background.color = options.background;
+        }
+        else if (bgType == "shape") {
+            selection.layers[0].style.fills[0].color = options.background;
+        }
     }
 
     if (options.foreground != null) {
-        selection.layers[1].style.textColor = options.foreground;
+        if (txtSize == "none"){
+            selection.layers[1].style.fills[0].color = options.foreground;
+        }
+        else {
+            selection.layers[1].style.textColor = options.foreground;
+        }
     }
 
     if (options.cancel) {
-        selection.layers[0].style.fills[0].color = initBgSketch;
-        selection.layers[1].style.textColor = initFgSketch;
+        if (txtSize == "none"){
+            selection.layers[1].style.fills[0].color = initFgSketch;
+        }
+        else {
+            selection.layers[1].style.textColor = initFgSketch;
+        }
+
+        if (bgType == "artboard") {
+            selection.layers[1].getParentArtboard().background.color = initBgSketch;
+        }
+        else if (bgType == "shape") {
+            selection.layers[0].style.fills[0].color = initBgSketch;
+        }
     }
 };
 
