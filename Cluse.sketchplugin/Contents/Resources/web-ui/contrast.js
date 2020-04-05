@@ -33,7 +33,7 @@ $(function() {
         $this.val(color);
 
         // Validations
-        if (color.length !== 7 || isNaN(getRGB(color.substr(1)))) {
+        if (color.length !== 7 || isNaN(hexToDec(color.substr(1)))) {
             $this.attr({
                 'aria-invalid': true,
                 'aria-describedby': context + 'Error'
@@ -132,7 +132,7 @@ function checkContrast() {
     }
 }
 
-function getRGB(c) {
+function hexToDec(c) {
     // parse c as hex number
     try {
         var c = parseInt(c, 16);
@@ -218,38 +218,43 @@ function findRGB(q1, q2, hue) {
     else return (q1);
 }
 
-function getsRGB(c) {
-    c = getRGB(c) / 255;
+function calculateLuminance(c) {
     c = (c <= 0.03928) ? c / 12.92 : Math.pow(((c + 0.055) / 1.055), 2.4);
     return c;
 }
 
 function getL(c) {
-    r = getsRGB(c.substr(1, 2))
-    g = getsRGB(c.substr(3, 2))
-    b = getsRGB(c.substr(-2))
+	r_color = hexToDec(c.substr(1, 2)) / 255;
+	g_color = hexToDec(c.substr(3, 2)) / 255;
+	b_color = hexToDec(c.substr(-2)) / 255;
 
-    return (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+    r_lum = calculateLuminance(r_color);
+    g_lum = calculateLuminance(g_color);
+    b_lum = calculateLuminance(b_color);
+
+    return (0.2126 * r_lum) + (0.7152 * g_lum) + (0.0722 * b_lum);
 }
 
 function getLWithAlpha(foreground_c, background_c, alpha) {
-    foreground_r = getsRGB(foreground_c.substr(1, 2))
-    foreground_g = getsRGB(foreground_c.substr(3, 2))
-    foreground_b = getsRGB(foreground_c.substr(-2))
+    fg_r_color = hexToDec(foreground_c.substr(1, 2)) / 255;
+    fg_g_color = hexToDec(foreground_c.substr(3, 2)) / 255;
+    fg_b_color = hexToDec(foreground_c.substr(-2)) / 255;
 
-    background_r = getsRGB(background_c.substr(1, 2))
-    background_g = getsRGB(background_c.substr(3, 2))
-    background_b = getsRGB(background_c.substr(-2))
+    bg_r_color = hexToDec(background_c.substr(1, 2)) / 255;
+    bg_g_color = hexToDec(background_c.substr(3, 2)) / 255;
+    bg_b_color = hexToDec(background_c.substr(-2)) / 255;
 
     // now, use the alpha to combine foreground+background...
-    r = (alpha * foreground_r) + ((1 - alpha) * background_r)
-    g = (alpha * foreground_g) + ((1 - alpha) * background_g)
-    b = (alpha * foreground_b) + ((1 - alpha) * background_b)
-    //r = ((1-alpha) * foreground_r) + (alpha * background_r)
-    //g = ((1-alpha) * foreground_g) + (alpha * background_g)
-    //b = ((1-alpha) * foreground_b) + (alpha * background_b)
+    fg_r_color_combined = (alpha * fg_r_color) + ((1 - alpha) * bg_r_color);
+    fg_g_color_combined = (alpha * fg_g_color) + ((1 - alpha) * bg_g_color);
+    fg_b_color_combined = (alpha * fg_b_color) + ((1 - alpha) * bg_b_color);
 
-    return (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+    // and convert to luminance
+    r_lum = calculateLuminance(fg_r_color_combined);
+    g_lum = calculateLuminance(fg_g_color_combined);
+    b_lum = calculateLuminance(fg_b_color_combined);
+
+    return (0.2126 * r_lum) + (0.7152 * g_lum) + (0.0722 * b_lum);
 }
 
 function Dec2(num) {

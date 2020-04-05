@@ -5,11 +5,11 @@ var initFg, initBg, initFAlpha, initBAlpha, initFgLightness, initBgLightness, sw
 function setSketchData(bg, fg, txtSize) {
 	fColor = fg.substring(0,7);
     fAlphaHex = fg.substring(7,9);
-	fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
+	fHSL = RGBtoHSL(hexToDec(fColor.substr(1, 2)), hexToDec(fColor.substr(3, 2)), hexToDec(fColor.substr(-2)));
 	initFgLightness = fHSL[2];
 	bColor = bg.substring(0,7);
     bAlphaHex = bg.substring(7,9);
-	bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
+	bHSL = RGBtoHSL(hexToDec(bColor.substr(1, 2)), hexToDec(bColor.substr(3, 2)), hexToDec(bColor.substr(-2)));
 	initBgLightness = bHSL[2];
 	initFg = fg;
 	initBg = bg;
@@ -76,7 +76,7 @@ function resetButtonState() {
 // Reset BG to Original
 function resetBg() {
 	bColor = initBg.substring(0,7);
-	bHSL = RGBtoHSL(getRGB(bColor.substr(1, 2)), getRGB(bColor.substr(3, 2)), getRGB(bColor.substr(-2)));
+	bHSL = RGBtoHSL(hexToDec(bColor.substr(1, 2)), hexToDec(bColor.substr(3, 2)), hexToDec(bColor.substr(-2)));
 	document.getElementById("bHex").value = initBg.substring(0,7);
 	document.getElementById("bColorLightness").value = initBg;
 	document.getElementById("bCircle").style.backgroundColor = initBg;
@@ -93,7 +93,7 @@ function resetBg() {
 // Reset FG to Original
 function resetFg() {
 	fColor = initFg.substring(0,7);
-	fHSL = RGBtoHSL(getRGB(fColor.substr(1, 2)), getRGB(fColor.substr(3, 2)), getRGB(fColor.substr(-2)));
+	fHSL = RGBtoHSL(hexToDec(fColor.substr(1, 2)), hexToDec(fColor.substr(3, 2)), hexToDec(fColor.substr(-2)));
 	document.getElementById("fHex").value = initFg.substring(0,7);
 	document.getElementById("fColorLightness").value = initFgLightness;
 	document.getElementById("fCircle").style.backgroundColor = initFg;
