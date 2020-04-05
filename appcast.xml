@@ -9,7 +9,7 @@
             <enclosure url="https://github.com/ygev/cluse/releases/download/v1.0/Cluse.sketchplugin.zip" sparkle:version="1.0"/>
         </item>
         <item>
-            <title> v1.1.0</title>
+            <title>v1.1.0</title>
             <description>
                 You can now test WCAG for shapes, artboards and transparent foregrounds.
             </description>
