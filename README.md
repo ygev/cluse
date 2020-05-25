@@ -10,7 +10,7 @@
       <img src="https://img.shields.io/badge/Cluse-v1.1.0-green.svg?style=flat" alt="Contact">
     </a>
     <a href="mailto:ygis@mit.edu">
-      <img src="https://img.shields.io/badge/Sketch-v64-orange.svg?style=flat" alt="Contact">
+      <img src="https://img.shields.io/badge/Sketch-v64+-orange.svg?style=flat" alt="Contact">
     </a>
 <a href="mailto:ygis@mit.edu">
       <img src="https://img.shields.io/badge/Contact-ygev-blue.svg?style=flat" alt="Contact">
